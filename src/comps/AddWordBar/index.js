@@ -16,6 +16,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
   handleClick() {
     const { newWord } = this.state
     this.props.store.addWord(newWord)
+    this.setState({ newWord: '' })
   }
 
   handleChange(e) {
@@ -31,7 +32,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
           onChange={ this.handleChange }
           placeholder="Add a word!"
         />
-        <button onClick={ this.handleClick }></button>
+        <button onClick={ this.handleClick }>+</button>
       </div>
     )
   }

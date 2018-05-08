@@ -19,13 +19,13 @@
   top: 10vh;
   height: 50%;
   width: 100%;
-  background: #379683;
+  background: #5CDb95;
 }
 .Button {
   cursor: pointer;
   width: 100%;
   height: 25%;
-  background: #379683;
+  background: #5CDb95;
   transition: .2s;
   display: flex;
   justify-content: center;
