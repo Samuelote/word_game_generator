@@ -32,7 +32,7 @@ export default class Crossword extends Component {
   renderCrossword() {
     return this.state.crossword.map((row, y) => row.map((cell, x) => (
       <div style={{ left: `${x}em`, top:`${y}em`}} className="CWCell">
-        {cell}
+        {(cell !== 0) ? cell : ""}
       </div>
     )))
   }
