@@ -1,14 +1,15 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import WordSearch from './comps/wordSearch';
+import WordSearch from './comps/wordSearch'
+import AddWordBar from './comps/AddWordBar'
 
 
 const App = observer(class App extends Component {
   render() {
-    console.log(this.props.store)
+    const {store} = this.props
     return (
       <div className="App">
-        <WordSearch />
+        <AddWordBar store={store} />
       </div>
     );
   }
