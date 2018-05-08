@@ -6,18 +6,20 @@
 }
 .Container {
   position: absolute;
-  left: 0px;
+  left: 0;
+  top: 0;
+  bottom: 0;
   background: #05386b;
-  height: 100vh;
+  height: 100%;
   width: 5vw;
 }
 
 .SideBar {
   position: absolute;
   top: 10vh;
-  height: 50vh;
+  height: 50%;
   width: 100%;
-  background: #05386b;
+  background: #379683;
 }
 .Button {
   cursor: pointer;
