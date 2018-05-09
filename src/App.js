@@ -13,6 +13,8 @@ const App = observer(class App extends Component {
         <AddWordBar store={this.props.store} />
         <WordBank store={this.props.store}/>
         <SideBar store={this.props.store}/>
+        <div className="ContentWrapper">
+        </div>
       </div>
     );
   }

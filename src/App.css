@@ -8,3 +8,12 @@ html, body, #root {
   font-family: 'Varela Round', sans-serif;
   background: linear-gradient(to right, #e9ece5, lightgrey);
 }
+
+.ContentWrapper {
+  position: absolute;
+  top: 10vh;
+  left: 24.9vw;
+  bottom: 0;
+  right: 0;
+  background: #5CDb95;
+}
