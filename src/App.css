@@ -6,7 +6,6 @@ html, body, #root {
   padding: 0;
   overflow: hidden;
   font-family: 'Varela Round', sans-serif;
-  background: linear-gradient(to right, #e9ece5, lightgrey);
 }
 
 .ContentWrapper {
@@ -15,5 +14,6 @@ html, body, #root {
   left: 24.9vw;
   bottom: 0;
   right: 0;
-  background: #5CDb95;
+  background: linear-gradient(to right, #e9ece5, lightgrey);
+
 }
