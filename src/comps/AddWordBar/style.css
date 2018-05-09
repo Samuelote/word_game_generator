@@ -7,7 +7,8 @@
   justify-content:flex-end;
   height: 10vh;
   width: 100vw;
-  background: #379683;
+  background: #3b3a36;
+  z-index: 2;
 }
 
 input:focus,
@@ -18,27 +19,26 @@ button:focus {
 }
 
 .AddWordBar>input {
-  background: #05386b;
-  /* border: ; */
-  /* border-radius: 10%; */
+  background: linear-gradient(to right, #e9ece5, lightgrey);
   padding-left: 2%;
   width: 50%;
   height: 60%;
   border-radius: 50px;
-  /* padding: right; */
-  color: #EDF5E1;
+  color: black;
   font-size: 3.5vh;
   font-weight: bold;
-  border:3px solid #05386b;
-  /* border-top: none;
-  border-bottom: 1px solid #DDD;
-  box-shadow: inset 0 1px 2px rgba(0, 0, 0, .39), 0 -1px 1px #FFF, 0 1px 0 #FFF; */
+  border:3px solid #3b3a36;
 }
 
 .AddWordBar>input::placeholder {
-  color: rgba(237,245,225, .5);
+  color: darkgrey;
 }
-
+.AddWordBar>div {
+  color: white;
+  position: absolute;
+  left: 5vw;
+  font-size: 4em;
+}
 .AddWordBar>button {
   border-radius: 50%;
   margin-left: .5vw;
@@ -46,8 +46,14 @@ button:focus {
   width: 5vh;
   height: 5vh;
   border: none;
+  background: #EC644B;
+  position: relative;
+}
+.AddWordBar>button>.glyphicon {
+  position: absolute;
+  top: 30%;
+  left: 30%;
   color: white;
-  font-size: 3.5vh;
-  background: #05386b;
-
+  font-size: 2vh;
+  font-weight: 100;
 }

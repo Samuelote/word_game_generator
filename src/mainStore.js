@@ -20,7 +20,8 @@ export class MainStore {
       addWord: action((nw) =>{
         this.wordBank.push(nw)
       }),
-      toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd)
+      toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),
+      puzzleType: 'Word Search'
 
     })
   }

@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css?family=Cantata+One');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
 
 html, body, #root {
   height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
-  font-family: 'Cantata One', serif;
-  background: #5CDb95;
+  font-family: 'Varela Round', sans-serif;
+  background: linear-gradient(to right, #e9ece5, lightgrey);
 }

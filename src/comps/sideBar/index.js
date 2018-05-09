@@ -2,14 +2,17 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import './style.css'
 
-const SideBar = observer(class App extends Component {
+const SideBar = observer(class SideBar extends Component {
   constructor(){
     super();
     this.state = {
       toggle: true,
       mode: 'Auto mode',
-      puzzleType: 'cross'
+      puzzleType: 'Word Search'
     }
+  }
+  componentDidMount(){
+    this.toggleType()
   }
 
   toggleMode() {
@@ -19,16 +22,25 @@ const SideBar = observer(class App extends Component {
   }
 
   toggleType(e) {
-    if (e.target.innerText === 'Word Search') {
-      document.querySelector('.WordSearch').style.background = 'rgba(0,0,0,.5)'
-      document.querySelector('.CrossWord').style.background = '#379683'
-    } else {
-      document.querySelector('.CrossWord').style.background = 'rgba(0,0,0,.5)'
-      document.querySelector('.WordSearch').style.background = '#379683'
-    }
+    if (!e){
+      document.querySelector('.WordSearch').style.background = '#EC644B'
+      this.setState({puzzleType: 'Word Search'});
 
-    this.setState({puzzleType: !this.state.puzzleType})
+    }
+    else if (e.target.innerText === 'Word Search') {
+      document.querySelector('.WordSearch').style.background = '#EC644B'
+      document.querySelector('.CrossWord').style.background = '#3b3a36'
+      this.setState({puzzleType: 'Word Search'});
+    } else {
+      console.log('else')
+      document.querySelector('.CrossWord').style.background = '#EC644B'
+      document.querySelector('.WordSearch').style.background = '#3b3a36'
+      this.setState({puzzleType: 'Cross Word'});
+    }
+    setTimeout(()=>this.props.store.puzzleType = this.state.puzzleType,10);
+
   }
+
   render() {
     return (
       <div className="Container">
@@ -50,7 +62,7 @@ const SideBar = observer(class App extends Component {
             <div className='glyphicon glyphicon-plus'></div>
             <div className='tooltip'>Cross Word</div>
           </div>
-          <div className='SliderButton Button' onClick={this.toggleMode.bind(this)}>
+          <div className='Button' onClick={this.toggleMode.bind(this)}>
             <div className='ModeText'>{this.state.mode}</div>
           </div>
         </div>
