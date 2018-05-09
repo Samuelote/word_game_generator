@@ -1,0 +1,26 @@
+.WordBank {
+  width: 20vw;
+  height: 90vh;
+  position: absolute;
+  left: 5vw;
+  background: #05386B;
+  top:10vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.WordBank > h3 {
+  color: #5CDb95;
+}
+
+.WordBank > div {
+  width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.WordBank > div > p {
+  color: #edf5e1;
+  margin-right: 10%;
+}

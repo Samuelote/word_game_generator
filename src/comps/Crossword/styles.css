@@ -1,0 +1,12 @@
+.CWCell {
+  margin: 0;
+  width: 1vh;
+  height: 1vh;
+  position: absolute;
+}
+
+.CrosswordWrapper {
+  position: relative;
+  height:70vh;
+  width:70vh;
+}

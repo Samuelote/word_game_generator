@@ -13,9 +13,17 @@ const AddWordBar = observer(class AddWordBar extends Component {
     this.handleClick  = this.handleClick.bind(this)
   }
 
+  componentDidMount() {
+    document.addEventListener('keydown', (e) => {
+      if (e.keyCode === 13) this.handleClick();
+    })
+  }
+
   handleClick() {
     const { newWord } = this.state
+    if (newWord.length > 1)
     this.props.store.addWord(newWord)
+    this.setState({ newWord: '' })
   }
 
   handleChange(e) {
@@ -31,7 +39,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
           onChange={ this.handleChange }
           placeholder="Add a word!"
         />
-        <button onClick={ this.handleClick }></button>
+        <button onClick={ this.handleClick }>+</button>
       </div>
     )
   }

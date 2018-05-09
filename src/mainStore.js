@@ -1,5 +1,4 @@
-import React from 'react'
-import { computed, observable, action, extendObservable } from 'mobx'
+import { action, extendObservable } from 'mobx'
 
 const Word = (word, added) => {
   return {
@@ -14,11 +13,13 @@ export class MainStore {
       //unamed keys are observables
 
       //observables
-      wordBank: {},
+      wordBank: [],
       autoAdd: false,
 
       //actions
-      addWord: action((nw) => this.wordBank[nw] = Word(nw, this.autoAdd)),
+      addWord: action((nw) =>{
+        this.wordBank.push(nw)
+      }),
       toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd)
 
     })
