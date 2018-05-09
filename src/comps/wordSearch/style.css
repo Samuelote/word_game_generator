@@ -1,0 +1,26 @@
+.btn {
+  background: #50c878;
+  width: 10vw;
+  height: 5vh;
+  text-align: center;
+  transition: .1s;
+  cursor: pointer;
+
+}
+.btn:hover {
+  transition: .00001s;
+  opacity: .5;
+}
+.btn:active {
+  opacity: 1;
+}
+.ArrayContainer {
+  width: 1000px;
+}
+.Row {
+  display: flex;
+}
+.Element {
+  width: 30px;
+  height: 30px;
+}
