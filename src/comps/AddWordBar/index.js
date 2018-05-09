@@ -33,13 +33,14 @@ const AddWordBar = observer(class AddWordBar extends Component {
   render() {
     return(
       <div className="AddWordBar">
+        <div>{this.props.store.puzzleType}</div>
         <input
           value={ this.state.newWord }
           type="text"
           onChange={ this.handleChange }
           placeholder="Add a word!"
         />
-        <button onClick={ this.handleClick }>+</button>
+        <button onClick={ this.handleClick } ><div className="glyphicon glyphicon-plus"></div></button>
       </div>
     )
   }

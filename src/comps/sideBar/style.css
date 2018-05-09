@@ -10,24 +10,22 @@
   left: 0;
   top: 0;
   bottom: 0;
-  background: #05386b;
+  background: #e3e3e3;
   height: 100%;
   width: 5vw;
 }
-
 .SideBar {
   position: absolute;
-  top: 10vh;
+  top: 13vh;
   height: 60%;
   width: 100%;
-  background: #5CDb95;
 }
 .Button {
   position: relative;
   cursor: pointer;
   width: 100%;
-  height: 25%;
-  background: #5CDb95;
+  height: 20%;
+  background: #3b3a36;
   transition: .2s;
   display: flex;
   justify-content: center;
@@ -72,6 +70,9 @@
   font-size: 2em;
   color: #edf5e1;
   transition: .2s;
+}
+.Save {
+  border: none;
 }
 @media screen and (max-width: 2000px) {
    .tooltip, .ModeText {

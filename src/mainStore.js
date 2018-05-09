@@ -21,8 +21,6 @@ export class MainStore {
       addWord: action((nw) => this.wordBank.push(nw)),
       toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),
       setPuzzleType: action((pt) => this.puzzleType = pt)
-
-
     })
   }
 }

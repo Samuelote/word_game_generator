@@ -4,16 +4,19 @@ import './style.css'
 
 const buttons = [{n:'Save', g: 'save'}, {n:'Export', g: 'export' }, {n:'WordSearch', g:'search'}, {n:'CrossWord', g:'plus'}]
 
-const SideBar = observer(class App extends Component {
+const SideBar = observer(class SideBar extends Component {
   constructor(){
     super();
     this.state = {
       toggle: true,
       mode: 'Auto mode',
-      puzzleType: 'cross'
+      puzzleType: 'Word Search'
     }
 
     this.handleClicks = this.handleClicks.bind(this)
+  }
+  componentDidMount(){
+    this.toggleType()
   }
 
   componentDidMount() {
