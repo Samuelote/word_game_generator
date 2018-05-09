@@ -3,5 +3,13 @@ html, body, #root {
   margin: 0;
   padding: 0;
   overflow: hidden;
+}
+
+.ContentWrapper {
+  position: absolute;
+  top: 10vh;
+  left: 24.9vw;
+  bottom: 0;
+  right: 0;
   background: #5CDb95;
 }
