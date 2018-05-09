@@ -4,19 +4,33 @@ import './style.css'
 
 const WordBank = observer(class WordBank extends Component {
 
-  // renderWords() {
-  //   const { wordBank } = this.props.store
-  //   return Object.keys(wordBank).map(w => <p>{w.word}</p>);
-  // }
+  componentDidMount() {
+    document.addEventListener('mousedown', (e) => {
+      const { target } = e
+      if (target.classList[0] === "word") {
+        console.log(target)
+      }
+    })
+  }
+
+  renderWords() {
+    return this.props.store.wordBank.map((w,i) => (
+      <p
+        key={i}
+        className={`word${w.added ? " added" : ""}`}
+      >
+        {w}
+      </p>
+    ))
+  }
 
   render() {
-    console.log(this.props.store)
     return(
       <div className="WordBank">
         <h3>Word Bank</h3>
         <div className="Words">
           {
-           this.props.store.wordBank.map((w,i) => <p key={i}>{w}</p>)
+            this.renderWords()
           }
         </div>
       </div>
