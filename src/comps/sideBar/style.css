@@ -36,14 +36,27 @@
   border-top: 1px solid rgba(0,0,0,.2);
   user-select: none;
 }
-.Button:hover .tooltip {opacity:1;}
-.Button:hover .glyphicon {opacity:.1;}
+.Button:hover .tooltip {
+  opacity:1;
+  pointer-events: none;
+  user-select: none;
+}
+.Button:hover .glyphicon {
+  opacity:.1;
+  pointer-events: none;
+  user-select: none;
+}
+
+
 
 .Button:active {
   background: rgba(0,0,0,.5);
   transition: .001s;
 }
 
+.ToggleOn {
+  background: rgba(0,0,0,.5)
+}
 
 .tooltip {
   position: absolute;

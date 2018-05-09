@@ -15,12 +15,13 @@ export class MainStore {
       //observables
       wordBank: [],
       autoAdd: false,
+      puzzleType: 'WordSearch',
 
       //actions
-      addWord: action((nw) =>{
-        this.wordBank.push(nw)
-      }),
-      toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd)
+      addWord: action((nw) => this.wordBank.push(nw)),
+      toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),
+      setPuzzleType: action((pt) => this.puzzleType = pt)
+
 
     })
   }
