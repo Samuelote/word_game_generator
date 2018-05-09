@@ -2,6 +2,8 @@ import React, { Component } from 'react'
 import { observer } from 'mobx-react'
 import './style.css'
 
+const buttons = [{n:'Save', g: 'save'}, {n:'Export', g: 'export' }, {n:'WordSearch', g:'search'}, {n:'CrossWord', g:'plus'}]
+
 const SideBar = observer(class SideBar extends Component {
   constructor(){
     super();
@@ -10,61 +12,69 @@ const SideBar = observer(class SideBar extends Component {
       mode: 'Auto mode',
       puzzleType: 'Word Search'
     }
+
+    this.handleClicks = this.handleClicks.bind(this)
   }
   componentDidMount(){
     this.toggleType()
   }
 
-  toggleMode() {
-    if (this.state.toggle) this.setState({mode: 'Edit mode'})
-    else this.setState({mode: 'Auto mode'})
-    this.setState({toggle: !this.state.toggle})
+  componentDidMount() {
+    document.querySelector('.WordSearch').classList.add('ToggleOn')
   }
 
-  toggleType(e) {
-    if (!e){
-      document.querySelector('.WordSearch').style.background = '#EC644B'
-      this.setState({puzzleType: 'Word Search'});
-
+  handleClicks(e) {
+    const name = e.target.classList[0]
+    switch(name){
+      case 'Save':
+        break
+      case 'Export':
+        break
+      case 'ModeText':
+        this.props.store.toggleAutoAdd()
+        break
+      case 'WordSearch':
+      case 'CrossWord':
+        this.toggleType(name)
+        break
+      default:
+        console.log(name)
     }
-    else if (e.target.innerText === 'Word Search') {
-      document.querySelector('.WordSearch').style.background = '#EC644B'
-      document.querySelector('.CrossWord').style.background = '#3b3a36'
-      this.setState({puzzleType: 'Word Search'});
-    } else {
-      console.log('else')
-      document.querySelector('.CrossWord').style.background = '#EC644B'
-      document.querySelector('.WordSearch').style.background = '#3b3a36'
-      this.setState({puzzleType: 'Cross Word'});
-    }
-    setTimeout(()=>this.props.store.puzzleType = this.state.puzzleType,10);
+  }
 
+  toggleType(name) {
+    const other = name === 'WordSearch' ? 'CrossWord' : 'WordSearch'
+    document.querySelector('.' + name).classList.add('ToggleOn')
+    document.querySelector('.' + other).classList.remove('ToggleOn')
+    this.props.store.setPuzzleType(name)
+  }
+
+  renderSideButtons(arr) {
+    return arr.map(el => (
+      <div key={el.n} className={`${el.n} Button`}>
+        <div className={`glyphicon glyphicon-${el.g}`}></div>
+        <div className='tooltip'>{el.n}</div>
+      </div>
+    ))
+  }
+
+  renderMode() {
+    const { autoAdd } = this.props.store
+    return(
+      <div className='Button'>
+        <div className='ModeText'>
+            { autoAdd ? 'Auto' : 'Edit' }
+        </div>
+      </div>
+    )
   }
 
   render() {
     return (
       <div className="Container">
-        <div className='SideBar'>
-          <div alt='save' className='Save Button'>
-            <div className='glyphicon glyphicon-save'></div>
-            <div className='tooltip'>Save</div>
-          </div>
-
-          <div className='Export Button'>
-            <div className='glyphicon glyphicon-export'></div>
-            <div className='tooltip'>Export</div>
-          </div>
-          <div id='WordSearch'className='WordSearch Button' onClick={this.toggleType.bind(this)}>
-            <div className='glyphicon glyphicon-search'></div>
-            <div className='tooltip'>Word Search</div>
-          </div>
-          <div id='CrossWord' className='CrossWord Button' onClick={this.toggleType.bind(this)}>
-            <div className='glyphicon glyphicon-plus'></div>
-            <div className='tooltip'>Cross Word</div>
-          </div>
-          <div className='Button' onClick={this.toggleMode.bind(this)}>
-            <div className='ModeText'>{this.state.mode}</div>
-          </div>
+        <div className='SideBar' onClick={this.handleClicks}>
+          { this.renderSideButtons(buttons) }
+          { this.renderMode() }
         </div>
       </div>
     );
