@@ -49,7 +49,7 @@ class WordSearch extends Component {
                                 10;
     for (let i = 0; i < 20; i++){
       let array2 = new Array();
-      array2.length = longestWord*4
+      array2.length = (longestWord >= 10 ) ? longestWord*2 : 20;
       array2.fill('.')
       arr.push(array2)
     }
@@ -58,6 +58,7 @@ class WordSearch extends Component {
 
     for (let j = 0; j < this.state.words.length; j++){
       let random = Math.floor(Math.random() * ((3) - 0) + 0)
+      if (this.state.words[j].length >= 20) random = 0;
       switch(random){
         case 0:
           setTimeout(()=>this.horizontal(this.state.words[j]),0)
@@ -128,13 +129,13 @@ class WordSearch extends Component {
 
   horizontal(word){
     const grid = this.state.grid;
-    const randoY = Math.floor(Math.random() * ((20-word.length) - 0) + 0)
+    const randoY = Math.floor(Math.random() * ((32-word.length) - 0) + 0)
     const randoX =   Math.floor(Math.random() * ((32-word.length)-0) + 0)
     let check = true;
     for (var j = 0; j < word.split('').length; j++){ // checks for overlap
+      console.log(grid)
       if (grid[randoY][randoX+j] !== '.'){
         check = false;
-        // this.horizontal(word);
       }
     }
     if (check === false){
