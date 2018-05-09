@@ -1,15 +1,21 @@
 import React, { Component } from 'react'
-import Crossword from './comps/Crossword'
+import { observer } from 'mobx-react'
+import WordSearch from './comps/wordSearch'
+import AddWordBar from './comps/AddWordBar'
+import SideBar from './comps/sideBar'
+import WordBank from './comps/WordBank'
 import './App.css'
 
-class App extends Component {
+const App = observer(class App extends Component {
   render() {
     return (
       <div className="App">
-        <Crossword />
+        <AddWordBar store={this.props.store} />
+        <WordBank store={this.props.store}/>
+        <SideBar />
       </div>
     );
   }
-}
+})
 
-export default App
+export default App;
