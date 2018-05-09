@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css?family=Cantata+One');
+
 html, body, #root {
   height: 100vh;
   margin: 0;
   padding: 0;
   overflow: hidden;
+  font-family: 'Cantata One', serif;
 }
