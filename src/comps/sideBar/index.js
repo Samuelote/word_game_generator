@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
+import CrossWord from '../../assets/crossWord.png'
+import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
 
-const buttons = [{n:'Save', g: 'save'}, {n:'Export', g: 'export' }, {n:'WordSearch', g:'search'}, {n:'CrossWord', g:'plus'}]
+const buttons = [{n:'Save', g: 'save'}, {n:'Export', g: 'export' }, {n:'WordSearch', g:'search', p: true}, {n:'CrossWord', g:'plus', p: true}]
 
 const SideBar = observer(class SideBar extends Component {
   constructor(){
@@ -52,7 +54,15 @@ const SideBar = observer(class SideBar extends Component {
   renderSideButtons(arr) {
     return arr.map(el => (
       <div key={el.n} className={`${el.n} Button`}>
-        <div className={`glyphicon glyphicon-${el.g}`}></div>
+        <div className={`glyphicon ${!el.p ? "glyphicon-" + el.g : ""}`}>
+          {
+            (el.n == 'WordSearch' || el.n == 'CrossWord')
+              ? (el.n == 'WordSearch')
+                ? <img alt={el.n} src={WordSearch}/>
+                : <img alt={el.n} src={CrossWord}/>
+              : ""
+          }
+        </div>
         <div className='tooltip'>{el.n}</div>
       </div>
     ))

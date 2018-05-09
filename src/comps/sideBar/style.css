@@ -45,7 +45,11 @@
   user-select: none;
 }
 
-
+.glyphicon > img {
+  height: 80%;
+  width: 80%;
+  color: white;
+}
 
 .Button:active {
   background: rgba(0,0,0,.5);
@@ -53,17 +57,26 @@
 }
 
 .ToggleOn {
-  background: rgba(0,0,0,.5)
+  background: #EC644B;
 }
 
 .tooltip {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   opacity: 0;
-  font-size: 2em;
+  font-size: 1em;
+  height: 100%;
+  width: 100%;
   color: #edf5e1;
   transition: .2s;
-
 }
+
+.tooltip:hover{
+  transition-delay: 1s;
+}
+
 .ModeText {
   position: absolute;
   opacity: 1;
