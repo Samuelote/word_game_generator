@@ -4,7 +4,13 @@ import CrossWord from '../../assets/crossWord.png'
 import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
 
-const buttons = [{n:'Save', g: 'save'}, {n:'Export', g: 'export' }, {n:'WordSearch', g:'search', p: true}, {n:'CrossWord', g:'plus', p: true}]
+const buttons = [
+  {n:'Save', g: 'save'},
+  {n:'Export', g: 'export' },
+  {n:'WordSearch', g:'search', p: true},
+  {n:'CrossWord', g:'plus', p: true},
+  {n:'Refresh', g:'refresh' }
+]
 
 const SideBar = observer(class SideBar extends Component {
   constructor(){
@@ -18,11 +24,7 @@ const SideBar = observer(class SideBar extends Component {
     this.handleClicks = this.handleClicks.bind(this)
   }
   componentDidMount(){
-    this.toggleType()
-  }
-
-  componentDidMount() {
-    document.querySelector('.WordSearch').classList.add('ToggleOn')
+    this.toggleType('WordSearch')
   }
 
   handleClicks(e) {
@@ -38,6 +40,9 @@ const SideBar = observer(class SideBar extends Component {
       case 'WordSearch':
       case 'CrossWord':
         this.toggleType(name)
+        break
+      case 'Refresh':
+        this.props.store.regenCrossword()
         break
       default:
         console.log(name)
@@ -56,8 +61,8 @@ const SideBar = observer(class SideBar extends Component {
       <div key={el.n} className={`${el.n} Button`}>
         <div className={`glyphicon ${!el.p ? "glyphicon-" + el.g : ""}`}>
           {
-            (el.n == 'WordSearch' || el.n == 'CrossWord')
-              ? (el.n == 'WordSearch')
+            (el.n === 'WordSearch' || el.n === 'CrossWord')
+              ? (el.n === 'WordSearch')
                 ? <img alt={el.n} src={WordSearch}/>
                 : <img alt={el.n} src={CrossWord}/>
               : ""

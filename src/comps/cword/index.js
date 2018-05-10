@@ -1,47 +1,22 @@
 import React, { Component } from 'react'
-import crosswordGenerator from './crosswordGenerator'
+import { observer } from 'mobx-react'
 import './styles.css'
 
-const testWords = [
-    'TABULAR',
-    'HAZARD',
-    'ADDITIONALTRANSPORTATION',
-    'DIGITIZE',
-    'FREEFORM',
-    'ELIGIBLE',
-    'CREATESTUDENT',
-    'RUN',
-    'ROUTE',
-    'STOPSERVICE',
-    'ADVANCEDSEARCH',
-    'TRANSPORTATIONNEEDS',
-    'STUDENTTRIP',
-    'ANCHORSCHOOL',
-    'CLEAR',
-    'WORKINGSET'
-]
-
-export default class Crossword extends Component {
-  constructor() {
-    super();
-    this.state = {
-      crossword: crosswordGenerator(testWords)
-    }
-  }
-
-  renderCrossword() {
-    return this.state.crossword.map((row, y) => row.map((cell, x) => (
-      <div style={{ left: `${x}em`, top:`${y}em`}} className="CWCell">
-        {(cell !== 0) ? cell : ""}
-      </div>
-    )))
-  }
-
+const Crossword = observer(class Crossword extends Component {
   render() {
-    return (
-        <div className="CrosswordWrapper">
-            { this.renderCrossword() }
-        </div>
+    // console.log(style.CrosswordWrapper, style.CWCell)
+    return(
+      <div className={"CrosswordWrapper"}>
+        {
+          this.props.store.crossword.map((row, y) => row.map((cell, x) => (
+            <div style={{ left: `${x * 1.5}em`, top:`${y * 1.5}em`}} className={`CWCell ${cell !== 0 ? "Filled" : ""}`}>
+              {(cell !== 0) ? cell : ""}
+            </div>
+          )))
+        }
+      </div>
     )
   }
-}
+})
+
+export default Crossword

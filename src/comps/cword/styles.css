@@ -1,12 +1,19 @@
 .CWCell {
   margin: 0;
-  width: 1vh;
-  height: 1vh;
+  width: 1.5em;
+  height: 1.5em;
   position: absolute;
 }
 
+
 .CrosswordWrapper {
+  display: flex;
   position: relative;
-  height:70vh;
-  width:70vh;
+  height:100%;
+  width: 100%;
+}
+
+
+.Filled {
+  border: 1px solid black;
 }

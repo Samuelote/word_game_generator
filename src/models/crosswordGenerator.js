@@ -1,4 +1,5 @@
 export default function generateCrossword(words) {
+  if (words.length < 1) return [];
   let sorted = words.sort((a,b) => b.length - a.length)
   // sorted.length = 6
   const mLen = sorted[0].length
@@ -8,8 +9,6 @@ export default function generateCrossword(words) {
   //Will be array of objects to contain name, x, y , and dir
   const plantedWords = []
   const plantWord = (word, y, x, dir, justChecking) => {
-    if (justChecking) console.log(mtrx.slice(0).map(arr => arr.slice(0)))
-    // console.log(!(mtrx[y-1] === undefined || mtrx[y-1][x] === 0))
     if (
        justChecking &&
        // check for vertically travelling words
@@ -25,13 +24,11 @@ export default function generateCrossword(words) {
     else if (justChecking) {
       for (let i=0;i<word.length; i++) {
         if(dir === 'v') {
-          // console.log(word[i],  mtrx[y+i][x], y, x+i)
           if (mtrx[y+i][x] !== 0 && mtrx[y+i][x] !== word[i]){
              return false
            }
         }
         else {
-          // console.log(word[i],  mtrx[y][x+i], y, x+i)
           if (mtrx[y][x+i] !== 0 && mtrx[y][x+i] !== word[i]){
              return false
            }
@@ -42,11 +39,9 @@ export default function generateCrossword(words) {
     else if (!justChecking){
       for(let i=0;i<word.length;i++) {
         if (dir === 'v'){
-          // console.log(word[i], mtrx[y+i][x])
           mtrx[y+i][x] = word[i]
         }
         else if( dir === 'h'){
-          // console.log(word[i],mtrx[y][x+i])
           mtrx[y][x+i] = word[i]
         }
       }
@@ -81,7 +76,6 @@ export default function generateCrossword(words) {
     let xPts = findCrossPts(last.name, sorted[s])
     let randStart = Math.floor(Math.random() * xPts.length)
     for (let p=randStart; p<xPts.length + randStart;p++) {
-      // console.log(last, xPts)
       let xPt = xPts[p % xPts.length]
       if (cDir === 'v') {
         if (plantWord(sorted[s], last.y - xPt[1], last.x + xPt[0], cDir, true)) {

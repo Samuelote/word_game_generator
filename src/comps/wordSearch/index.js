@@ -48,7 +48,7 @@ class WordSearch extends Component {
                             this.state.words.sort(function (a, b) { return b.length - a.length; })[0].length :
                                 10;
     for (let i = 0; i < 20; i++){
-      let array2 = new Array();
+      let array2 = [];
       array2.length = (longestWord >= 10 ) ? longestWord*2 : 20;
       array2.fill('.')
       arr.push(array2)
