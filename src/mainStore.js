@@ -1,24 +1,25 @@
 import { action, extendObservable } from 'mobx'
 import crosswordGenerator from './models/crosswordGenerator'
+import wordSearchGenerator from './models/wordSearchGenerator'
 
 
 const testWords = [
-    'TABULAR',
-    'HAZARD',
-    'ADDITIONALTRANSPORTATION',
-    'DIGITIZE',
-    'FREEFORM',
-    'ELIGIBLE',
-    'CREATESTUDENT',
-    'RUN',
-    'ROUTE',
-    'STOPSERVICE',
-    'ADVANCEDSEARCH',
-    'TRANSPORTATIONNEEDS',
-    'STUDENTTRIP',
-    'ANCHORSCHOOL',
-    'CLEAR',
-    'WORKINGSET'
+  'TABULAR',
+  'HAZARD',
+  'ADDITIONALTRANSPORTATION',
+  'DIGITIZE',
+  'FREEFORM',
+  'ELIGIBLE',
+  'CREATESTUDENT',
+  'RUN',
+  'ROUTE',
+  'STOPSERVICE',
+  'ADVANCEDSEARCH',
+  'TRANSPORTATIONNEEDS',
+  'STUDENTTRIP',
+  'ANCHORSCHOOL',
+  'CLEAR',
+  'WORKINGSET'
 ]
 
 export class MainStore {
@@ -29,6 +30,7 @@ export class MainStore {
       //observables
       wordBank: [],
       crossword: [],
+      wordsearch: [],
       autoAdd: false,
       puzzleType: 'WordSearch',
 
@@ -43,6 +45,9 @@ export class MainStore {
 
       regenCrossword: action(() => {
         this.crossword = crosswordGenerator(testWords)
+      }),
+      regenWordSearch: action(() => {
+        this.wordsearch = wordSearchGenerator(testWords)
       })
     })
   }

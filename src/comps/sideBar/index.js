@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import CrossWord from '../../assets/crossWord.png'
+import CrossWord from '../../assets/CrossWord.png'
 import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
 
@@ -38,10 +38,14 @@ const SideBar = observer(class SideBar extends Component {
         this.props.store.toggleAutoAdd()
         break
       case 'WordSearch':
+        this.toggleType(name)
+        this.props.store.regenWordSearch();
+        break
       case 'CrossWord':
         this.toggleType(name)
         break
       case 'Refresh':
+        this.props.store.regenWordSearch()
         this.props.store.regenCrossword()
         break
       default:

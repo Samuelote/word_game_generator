@@ -4,10 +4,15 @@
 }
 .Row {
   display: flex;
-  height: 30px;
+  height: 20px;
 }
 .Element {
-  width: 30px;
-  height: 30px;
-  text-align: center;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Word {
+  background: rgba(236, 100, 75, .4);
 }

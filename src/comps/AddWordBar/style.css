@@ -48,6 +48,10 @@ button:focus {
   border: none;
   background: #EC644B;
   position: relative;
+  transition: .1s;
+}
+.AddWordBar>button:hover {
+  opacity: .5;
 }
 .AddWordBar>button>.glyphicon {
   position: absolute;
