@@ -28,7 +28,7 @@ export class MainStore {
 
       //observables
       wordBank: [],
-      crossword: [],
+      crossword: {mtrx: [], top:0},
       autoAdd: false,
       puzzleType: 'WordSearch',
 

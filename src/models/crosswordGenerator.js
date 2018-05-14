@@ -1,3 +1,12 @@
+
+function getTop(arr) {
+  for (let i=0;i<arr.length;i++) {
+    for (let j=0;j<arr[i].length;j++) {
+      if (arr[i][j] !== 0) return i;
+    }
+  }
+}
+
 export default function generateCrossword(words) {
   if (words.length < 1) return [];
   let sorted = words.sort((a,b) => b.length - a.length)
@@ -94,6 +103,9 @@ export default function generateCrossword(words) {
 
   }
 
-
-  return mtrx
+  console.log("The top of the matrix is" + getTop(mtrx))
+  return {
+    mtrx,
+    top: getTop(mtrx)
+  }
 }
