@@ -18,6 +18,7 @@ const WordBank = observer(class WordBank extends Component {
       <p
         key={i}
         className={`word${w.added ? " added" : ""}`}
+        onClick={this.props.store.deleteWord()}
       >
         {w}
       </p>
@@ -31,8 +32,16 @@ const WordBank = observer(class WordBank extends Component {
     }
   }
 
+  handleClick(e) {
+    const arrCont = document.querySelector('.ArrayContainer')
+    const store = this.props.store
+    if (arrCont) arrCont.innerHTML = ''
+
+    if (e.target.className.includes(' activeBtn')) store.regenPuzzle(store.puzzleType);
+  }
+
   render() {
-    // setTimeout(()=>this.activateBtn(),0)
+    setTimeout(()=>this.activateBtn(),0)
     return(
       <div>
         <div className="WordBank">
@@ -42,11 +51,11 @@ const WordBank = observer(class WordBank extends Component {
               this.renderWords()
             }
           </div>
+          <button className='Btn inactiveBtn' onClick={this.handleClick.bind(this)}>Draw Puzzle</button>
         </div>
       </div>
     )
   }
 })
-// <button className='Btn inactiveBtn' onClick={this.props.store.regenPuzzle(this.props.store.puzzleType)}>Draw Puzzle</button>
 
 export default WordBank

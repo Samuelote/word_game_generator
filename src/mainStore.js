@@ -29,7 +29,7 @@ export class MainStore {
 
       //observables
       wordMap: new Map(),
-      wordBank: testWords,
+      wordBank: [],
       crossword: {plantedWords: [], mtrx: [], top:0},
       wordsearch: [],
       autoAdd: false,
@@ -37,6 +37,9 @@ export class MainStore {
 
 
       //actions
+      deleteWord: action ((e)=>{
+        console.log(e)
+      }),
       addWord: action((nw, loc) => {
         this.wordMap.set(loc, nw.toUpperCase())
         this.wordBank.push(nw.toUpperCase())
@@ -44,16 +47,12 @@ export class MainStore {
       }),
 
       toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),
+
       setPuzzleType: action((pt) => this.puzzleType = pt),
+
       regenPuzzle: action((name) => {
         (name === 'WordSearch') ? this.wordsearch = wordSearchGenerator(this.wordBank) :
         this.crossword = crosswordGenerator(this.wordBank)
-      }),
-      regenCrossword: action(() => {
-        alert('out of commission');
-      }),
-      regenWordSearch: action(() => {
-        alert('out of commission');
       })
     })
   }
