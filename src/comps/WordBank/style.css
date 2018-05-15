@@ -17,14 +17,14 @@
 .WordBank > h3 {
   font-size: 30px;
   color: #3b3a36;
-  transition: .2s;
+  transition: .5s;
 }
 .WordBank > h1 {
   position: absolute;
   top: 10px;
   font-size: 30px;
   color: #3b3a36;
-  transition: .2s;
+  transition: .5s;
   opacity: 0;
 
 }
@@ -32,8 +32,10 @@
   opacity: 0;
 }
 .WordBank:hover > h1 {
+  transition-delay: .5s;
   opacity: 1;
-  animation: blink .5s linear infinite alternate;
+  animation: blink 1s linear infinite alternate;
+  animation-delay: .5s;
 }
 
 .WordBank > div {
@@ -65,6 +67,7 @@
 .activeBtn:hover {
   opacity: 1;
 }
+
 .inactiveBtn {
   cursor: default;
   background: darkgrey;

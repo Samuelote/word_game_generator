@@ -47,14 +47,14 @@ const WordBank = observer(class WordBank extends Component {
     return(
       <div>
         <div className="WordBank">
-          <h1>Click Word To Delete</h1>
+          <h1 className='h1'>Click Word To Delete</h1>
+          <button className='Btn inactiveBtn' onClick={this.handleClick.bind(this)}>Draw Puzzle</button>
           <h3>Word Bank</h3>
           <div className="Words">
             {
               this.renderWords()
             }
           </div>
-          <button className='Btn inactiveBtn' onClick={this.handleClick.bind(this)}>Draw Puzzle</button>
         </div>
       </div>
     )

@@ -44,11 +44,22 @@ const SideBar = observer(class SideBar extends Component {
         this.toggleType(name)
         break
       case 'Refresh':
-        this.props.store.regenPuzzle(this.props.store.puzzleType, name);
+        if (this.props.store.wordBank.length === 0){
+          this.blinkToAddWords()
+          break
+        } else {
+          this.props.store.regenPuzzle(this.props.store.puzzleType, name);
+        }
         break
       default:
         console.log(name)
     }
+  }
+
+  blinkToAddWords() {
+    document.querySelector('.Warning').style.animation = 'blinker .8s 2 alternate'
+
+    setTimeout(()=>document.querySelector('.Warning').style.animation = 'none', 2000)
   }
 
   toggleType(name) {
