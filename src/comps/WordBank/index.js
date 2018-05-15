@@ -24,18 +24,29 @@ const WordBank = observer(class WordBank extends Component {
     ))
   }
 
+  activateBtn() {
+    if (this.props.store.wordBank.length > 0){
+      document.querySelector('.Btn').classList.add('activeBtn')
+      document.querySelector('.Btn').classList.remove('inactiveBtn')
+    }
+  }
+
   render() {
+    // setTimeout(()=>this.activateBtn(),0)
     return(
-      <div className="WordBank">
-        <h3>Word Bank</h3>
-        <div className="Words">
-          {
-            this.renderWords()
-          }
+      <div>
+        <div className="WordBank">
+          <h3>Word Bank</h3>
+          <div className="Words">
+            {
+              this.renderWords()
+            }
+          </div>
         </div>
       </div>
     )
   }
 })
+// <button className='Btn inactiveBtn' onClick={this.props.store.regenPuzzle(this.props.store.puzzleType)}>Draw Puzzle</button>
 
 export default WordBank

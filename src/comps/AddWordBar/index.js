@@ -39,7 +39,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
           type="text"
           onChange={ this.handleChange }
           placeholder="Add a word!"
-          maxLength= "20"
+          maxLength= "24"
         />
         <button onClick={ this.handleClick } ><div className="glyphicon glyphicon-plus"></div></button>
       </div>

@@ -1,3 +1,4 @@
+
 .WordBank {
   width: 20vw;
   height: 90vh;
@@ -23,7 +24,7 @@
   overflow-x: hidden;
   width: 110%;
   top: 10vh;
-  height: 80vh;
+  height: 70vh;
   left: 1.5vh;
   display: flex;
   flex-wrap: wrap;
@@ -33,4 +34,34 @@
   color: black;
   font-size: 2vh;
   margin-right: 10%;
+}
+
+.activeBtn {
+  background: #EC644B;
+  color: white;
+  cursor: pointer;
+  transition: .3s;
+}
+.activeBtn:hover {
+  opacity: 1;
+}
+.inactiveBtn {
+  cursor: default;
+  background: darkgrey;
+  color: grey;
+  transition: .5s;
+
+}
+.Btn {
+  border-radius: 10px;
+  width: 60%;
+  height: 7vh;
+  font-size: 1.3em;
+  font-weight: 900;
+  letter-spacing: 1px;
+  border: none;
+  position: absolute;
+  bottom: 50px;
+  z-index: 2;
+  opacity: .7;
 }

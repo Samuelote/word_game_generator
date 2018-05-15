@@ -49,6 +49,7 @@ button:focus {
   background: #EC644B;
   position: relative;
   transition: .1s;
+
 }
 .AddWordBar>button:hover {
   opacity: .5;

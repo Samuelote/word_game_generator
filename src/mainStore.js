@@ -40,17 +40,20 @@ export class MainStore {
       addWord: action((nw, loc) => {
         this.wordMap.set(loc, nw.toUpperCase())
         this.wordBank.push(nw.toUpperCase())
-        if (this.autoAdd) this.regenCrossword()
+        if (this.autoAdd) this.regenPuzzle('CrossWord')
       }),
 
       toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),
       setPuzzleType: action((pt) => this.puzzleType = pt),
-
-      regenCrossword: action(() => {
+      regenPuzzle: action((name) => {
+        (name === 'WordSearch') ? this.wordsearch = wordSearchGenerator(this.wordBank) :
         this.crossword = crosswordGenerator(this.wordBank)
       }),
+      regenCrossword: action(() => {
+        alert('out of commission');
+      }),
       regenWordSearch: action(() => {
-        this.wordsearch = wordSearchGenerator(this.wordBank)
+        alert('out of commission');
       })
     })
   }

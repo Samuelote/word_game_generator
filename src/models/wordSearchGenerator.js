@@ -15,8 +15,6 @@ export default function generateWordSearch(words) {
     }
     grid.push(arr);
     for (let j = 0; j < words.length; j++){
-      let random = Math.floor(Math.random() * ((3) - 0) + 0)
-      if (words[j].length >= 20) random = 0;
       switcher(words[j], Math.floor(Math.random() * ((3) - 0) + 0))
     }
 
@@ -33,6 +31,8 @@ export default function generateWordSearch(words) {
         case 2:
           diagnal(word)
           break
+        default:
+          return null
       }
   }
   function horizontal(word){
