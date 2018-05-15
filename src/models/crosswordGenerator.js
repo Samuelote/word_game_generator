@@ -80,7 +80,6 @@ export default function generateCrossword(words) {
   plantWord(sorted[0], mtrx.length / 2, (mtrx[0].length - mLen) / 2, cDir)
 
   //Loop through the res of the words in the sorted arra
-  console.log(plantedWords)
   for (let s=1; s < sorted.length;s++) {
     cDir = cDir === 'v' ? 'h' : 'v'
     let last = plantedWords[(cDir === 'v') ? 0 : plantedWords.length - 1]
@@ -106,6 +105,7 @@ export default function generateCrossword(words) {
   }
 
   return {
+    plantedWords,
     mtrx,
     top: getTop(mtrx)
   }

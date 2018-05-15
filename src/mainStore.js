@@ -30,7 +30,7 @@ export class MainStore {
       //observables
       wordMap: new Map(),
       wordBank: testWords,
-      crossword: {mtrx: [], top:0},
+      crossword: {plantedWords: [], mtrx: [], top:0},
       wordsearch: [],
       autoAdd: false,
       puzzleType: 'WordSearch',

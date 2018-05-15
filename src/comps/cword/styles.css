@@ -4,10 +4,17 @@
   height: 1.5em;
   position: absolute;
   user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .CWCell > p {
   user-select: none;
+}
+
+.WordStart {
+    background: #EC644B;
 }
 
 .CrosswordWrapper {
@@ -15,6 +22,7 @@
   position: relative;
   height:100%;
   width: 100%;
+  overflow: auto;
 }
 
 .Filled {
