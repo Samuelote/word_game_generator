@@ -10,6 +10,7 @@ html, body, #root {
 
 .ContentWrapper {
   position: absolute;
+  z-index: 2;
   top: 10vh;
   left: 24.9vw;
   bottom: 0;

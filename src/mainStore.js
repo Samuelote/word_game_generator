@@ -28,15 +28,18 @@ export class MainStore {
       //unamed keys are observables
 
       //observables
-      wordBank: [],
-      crossword: [],
+      wordMap: new Map(),
+      wordBank: testWords,
+      crossword: {plantedWords: [], mtrx: [], top:0},
       wordsearch: [],
       autoAdd: false,
       puzzleType: 'WordSearch',
 
+
       //actions
-      addWord: action((nw) => {
-        this.wordBank.push(nw)
+      addWord: action((nw, loc) => {
+        this.wordMap.set(loc, nw.toUpperCase())
+        this.wordBank.push(nw.toUpperCase())
         if (this.autoAdd) this.regenCrossword()
       }),
 
@@ -44,10 +47,10 @@ export class MainStore {
       setPuzzleType: action((pt) => this.puzzleType = pt),
 
       regenCrossword: action(() => {
-        this.crossword = crosswordGenerator(testWords)
+        this.crossword = crosswordGenerator(this.wordBank)
       }),
       regenWordSearch: action(() => {
-        this.wordsearch = wordSearchGenerator(testWords)
+        this.wordsearch = wordSearchGenerator(this.wordBank)
       })
     })
   }

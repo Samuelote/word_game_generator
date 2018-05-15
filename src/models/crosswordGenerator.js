@@ -1,3 +1,12 @@
+
+function getTop(arr) {
+  for (let i=0;i<arr.length;i++) {
+    for (let j=0;j<arr[i].length;j++) {
+      if (arr[i][j] !== 0) return i;
+    }
+  }
+}
+
 export default function generateCrossword(words) {
   if (words.length < 1) return [];
   let sorted = words.sort((a,b) => b.length - a.length)
@@ -12,13 +21,14 @@ export default function generateCrossword(words) {
     if (
        justChecking &&
        // check for vertically travelling words
-       (dir === 'v' && (mtrx[y + word.length - 1] === undefined) &&
-       (!(mtrx[y-1] === undefined || mtrx[y-1][x] === 0) ||
-       !(mtrx[y+word.length] === undefined || mtrx[y+word.length][x] === 0))) ||
+       (
+         dir === 'v' && mtrx[y + word.length - 1] === undefined || Boolean(mtrx[y-1][x])
+       )
+       ||
        //check for horizintally travelling words
-       (dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) &&
-       (!(mtrx[y][x-1] === undefined || mtrx[y][x-1] === 0) ||
-       !(mtrx[y][x+word.length] === undefined || mtrx[y][x+word.length] === 0)))
+       (
+         dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) || Boolean(mtrx[y][x-1])
+       )
      ) return false
 
     else if (justChecking) {
@@ -94,6 +104,9 @@ export default function generateCrossword(words) {
 
   }
 
-
-  return mtrx
+  return {
+    plantedWords,
+    mtrx,
+    top: getTop(mtrx)
+  }
 }
