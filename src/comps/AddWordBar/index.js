@@ -19,7 +19,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
     })
   }
 
-  handleClick() {
+  handleClick(e) {
     const { newWord } = this.state
     if (newWord.length > 1)
     this.props.store.addWord(newWord)
@@ -27,7 +27,8 @@ const AddWordBar = observer(class AddWordBar extends Component {
   }
 
   handleChange(e) {
-    this.setState({ newWord: e.target.value })
+    //prevents spaces from being typed
+    if (e.target.value.split('').pop() != ' ') this.setState({ newWord: e.target.value })
   }
 
   render() {
@@ -37,7 +38,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
         <input
           value={ this.state.newWord }
           type="text"
-          onChange={ this.handleChange }
+          onChange={this.handleChange}
           placeholder="Add a word!"
           maxLength= "24"
         />

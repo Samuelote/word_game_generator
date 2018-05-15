@@ -38,7 +38,12 @@ export class MainStore {
 
       //actions
       deleteWord: action ((e)=>{
-        console.log(e)
+        const target = e.innerText;
+        for (let i = 0; i < this.wordBank.length; i++){
+          if (this.wordBank[i] === e.innerText) {
+            this.wordBank.splice(i,1)
+          }
+        }
       }),
       addWord: action((nw, loc) => {
         this.wordMap.set(loc, nw.toUpperCase())

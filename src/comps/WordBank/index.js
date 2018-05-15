@@ -8,7 +8,7 @@ const WordBank = observer(class WordBank extends Component {
     document.addEventListener('mousedown', (e) => {
       const { target } = e
       if (target.classList[0] === "word") {
-        console.log(target)
+        this.props.store.deleteWord(target)
       }
     })
   }
@@ -18,13 +18,15 @@ const WordBank = observer(class WordBank extends Component {
       <p
         key={i}
         className={`word${w.added ? " added" : ""}`}
-        onClick={this.props.store.deleteWord()}
       >
         {w}
       </p>
     ))
   }
 
+  deleteWord(){
+    this.props.store.deleteWord()
+  }
   activateBtn() {
     if (this.props.store.wordBank.length > 0){
       document.querySelector('.Btn').classList.add('activeBtn')
@@ -45,6 +47,7 @@ const WordBank = observer(class WordBank extends Component {
     return(
       <div>
         <div className="WordBank">
+          <h1>Click Word To Delete</h1>
           <h3>Word Bank</h3>
           <div className="Words">
             {

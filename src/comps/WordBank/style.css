@@ -1,4 +1,6 @@
-
+@keyframes blink {
+  to {color: transparent}
+}
 .WordBank {
   width: 20vw;
   height: 90vh;
@@ -15,6 +17,23 @@
 .WordBank > h3 {
   font-size: 30px;
   color: #3b3a36;
+  transition: .2s;
+}
+.WordBank > h1 {
+  position: absolute;
+  top: 10px;
+  font-size: 30px;
+  color: #3b3a36;
+  transition: .2s;
+  opacity: 0;
+
+}
+.WordBank:hover > h3 {
+  opacity: 0;
+}
+.WordBank:hover > h1 {
+  opacity: 1;
+  animation: blink .5s linear infinite alternate;
 }
 
 .WordBank > div {
