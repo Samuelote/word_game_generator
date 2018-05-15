@@ -4,7 +4,6 @@
   position: absolute;
   left: 5vw;
   background: linear-gradient(to left, #e9ece5, #e3e3e3);
-
   top:10vh;
   display: flex;
   flex-direction: column;
@@ -18,13 +17,20 @@
 }
 
 .WordBank > div {
-  width: 80%;
+  position: absolute;
+  z-index: 1;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  width: 110%;
+  top: 10vh;
+  height: 80vh;
+  left: 1.5vh;
   display: flex;
   flex-wrap: wrap;
 }
 
 .WordBank > div > p {
   color: black;
-  font-size: 20px;
+  font-size: 2vh;
   margin-right: 10%;
 }

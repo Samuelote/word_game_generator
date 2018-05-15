@@ -21,15 +21,14 @@ export default function generateCrossword(words) {
     if (
        justChecking &&
        // check for vertically travelling words
-       ((
-         dir === 'v' && mtrx[y + word.length - 1] === undefined && Boolean(mtrx[y-1][x])
+       (
+         dir === 'v' && mtrx[y + word.length - 1] === undefined || Boolean(mtrx[y-1][x])
        )
        ||
        //check for horizintally travelling words
        (
-         dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) &&
-         (Boolean(mtrx[y][x-1]) && Boolean(mtrx[y][x+word.length]))
-       ))
+         dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) || Boolean(mtrx[y][x-1])
+       )
      ) return false
 
     else if (justChecking) {
