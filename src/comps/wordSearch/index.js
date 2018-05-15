@@ -21,7 +21,6 @@ const WordSearch = observer(class WordSearch extends Component {
 // I needed to map a div inside another mapped div (row and letter) and you can't go that deep within jsx.
   print(){
     const grid = this.props.store.wordsearch[0];
-    console.log(grid)
     const parentContainer = document.querySelector('.ArrayContainer')
     for (let i = 0; i < grid.length; i++){
       const div = document.createElement('div')
@@ -39,12 +38,10 @@ const WordSearch = observer(class WordSearch extends Component {
 
   render() {
     return (
-      <div>
         <div className="GridContainer">
           <div className='ArrayContainer'>
           </div>
         </div>
-      </div>
     );
   }
 })

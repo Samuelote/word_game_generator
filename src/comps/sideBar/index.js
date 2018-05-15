@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { observer } from 'mobx-react'
-import CrossWord from '../../assets/CrossWord.png'
+import CrossWord from '../../assets/crossWord.png'
 import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
 

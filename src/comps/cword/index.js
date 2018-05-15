@@ -7,7 +7,6 @@ const Crossword = observer(class Crossword extends Component {
     console.log(this.props.store.crossword)
   }
   render() {
-    // console.log(style.CrosswordWrapper, style.CWCell)
     const { mtrx, top } = this.props.store.crossword
     return(
       <div className={"CrosswordWrapper"}>

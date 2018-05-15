@@ -21,13 +21,15 @@ export default function generateCrossword(words) {
     if (
        justChecking &&
        // check for vertically travelling words
-       (dir === 'v' && (mtrx[y + word.length - 1] === undefined) &&
-       (!(mtrx[y-1] === undefined || mtrx[y-1][x] === 0) ||
-       !(mtrx[y+word.length] === undefined || mtrx[y+word.length][x] === 0))) ||
+       ((
+         dir === 'v' && mtrx[y + word.length - 1] === undefined && Boolean(mtrx[y-1][x])
+       )
+       ||
        //check for horizintally travelling words
-       (dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) &&
-       (!(mtrx[y][x-1] === undefined || mtrx[y][x-1] === 0) ||
-       !(mtrx[y][x+word.length] === undefined || mtrx[y][x+word.length] === 0)))
+       (
+         dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) &&
+         (Boolean(mtrx[y][x-1]) && Boolean(mtrx[y][x+word.length]))
+       ))
      ) return false
 
     else if (justChecking) {
@@ -79,6 +81,7 @@ export default function generateCrossword(words) {
   plantWord(sorted[0], mtrx.length / 2, (mtrx[0].length - mLen) / 2, cDir)
 
   //Loop through the res of the words in the sorted arra
+  console.log(plantedWords)
   for (let s=1; s < sorted.length;s++) {
     cDir = cDir === 'v' ? 'h' : 'v'
     let last = plantedWords[(cDir === 'v') ? 0 : plantedWords.length - 1]
@@ -103,7 +106,6 @@ export default function generateCrossword(words) {
 
   }
 
-  console.log("The top of the matrix is" + getTop(mtrx))
   return {
     mtrx,
     top: getTop(mtrx)
