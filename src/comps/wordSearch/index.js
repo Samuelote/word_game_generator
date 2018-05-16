@@ -12,6 +12,9 @@ const WordSearch = observer(class WordSearch extends Component {
     }
   }
   componentDidMount(){
+    document.addEventListener('click', (e)=>{
+      console.log(e)
+    });
   }
 
 // I had to use this print function because the double map didnt work.

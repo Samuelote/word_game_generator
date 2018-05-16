@@ -15,12 +15,12 @@ const WordBank = observer(class WordBank extends Component {
 
   renderWords() {
     return this.props.store.wordBank.map((w,i) => (
-      <p
+      <li
         key={i}
         className={`word${w.added ? " added" : ""}`}
       >
         {w}
-      </p>
+      </li>
     ))
   }
 
@@ -43,18 +43,19 @@ const WordBank = observer(class WordBank extends Component {
   }
 
   render() {
+    const wordBank = this.props.store.wordBank;
     setTimeout(()=>this.activateBtn(),0)
     return(
       <div>
         <div className="WordBank">
-          <h1 className='h1'>Click Word To Delete</h1>
+          <h1 className='h1'>{(wordBank.length > 0) ? 'Click Word To Delete' : 'Add Words'}</h1>
           <button className='Btn inactiveBtn' onClick={this.handleClick.bind(this)}>Draw Puzzle</button>
           <h3>Word Bank</h3>
-          <div className="Words">
+          <ul className="Words">
             {
               this.renderWords()
             }
-          </div>
+          </ul>
         </div>
       </div>
     )

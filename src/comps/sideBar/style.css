@@ -15,10 +15,12 @@
   width: 5vw;
 }
 .SideBar {
+  box-shadow: -6px 0px 35px 10px rgba(0,0,0,.5);
   position: absolute;
   top: 13vh;
   height: 60%;
   width: 100%;
+  z-index: 100;
 }
 .Button {
   position: relative;

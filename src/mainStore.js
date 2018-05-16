@@ -28,8 +28,7 @@ export class MainStore {
       //unamed keys are observables
 
       //observables
-      wordMap: new Map(),
-      wordBank: [],
+      wordBank: testWords,
       crossword: {plantedWords: [], mtrx: [], top:0},
       wordsearch: [],
       autoAdd: false,
@@ -38,17 +37,16 @@ export class MainStore {
 
       //actions
       deleteWord: action ((e)=>{
-        const target = e.innerText;
-        for (let i = 0; i < this.wordBank.length; i++){
-          if (this.wordBank[i] === e.innerText) {
-            this.wordBank.splice(i,1)
-          }
-        }
+        let word = e.innerText
+        const index = this.wordBank.indexOf(word)
+        this.wordBank.splice(index,1)
       }),
       addWord: action((nw, loc) => {
-        this.wordMap.set(loc, nw.toUpperCase())
+        // this.wordMap.set(loc, nw.toUpperCase())
         this.wordBank.push(nw.toUpperCase())
         if (this.autoAdd) this.regenPuzzle('CrossWord')
+        const el = document.querySelector('.Words')
+        el.scrollTop = el.scrollHeight
       }),
 
       toggleAutoAdd: action(() => this.autoAdd = !this.autoAdd),

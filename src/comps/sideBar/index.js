@@ -8,8 +8,7 @@ const buttons = [
   {n:'Save', g: 'save'},
   {n:'Export', g: 'export' },
   {n:'WordSearch', g:'search', p: true},
-  {n:'CrossWord', g:'plus', p: true},
-  {n:'Refresh', g:'refresh' }
+  {n:'CrossWord', g:'plus', p: true}
 ]
 
 const SideBar = observer(class SideBar extends Component {
@@ -43,14 +42,6 @@ const SideBar = observer(class SideBar extends Component {
       case 'CrossWord':
         this.toggleType(name)
         break
-      case 'Refresh':
-        if (this.props.store.wordBank.length === 0){
-          this.blinkToAddWords()
-          break
-        } else {
-          this.props.store.regenPuzzle(this.props.store.puzzleType, name);
-        }
-        break
       default:
         console.log(name)
     }
@@ -58,7 +49,6 @@ const SideBar = observer(class SideBar extends Component {
 
   blinkToAddWords() {
     document.querySelector('.Warning').style.animation = 'blinker .8s 2 alternate'
-
     setTimeout(()=>document.querySelector('.Warning').style.animation = 'none', 2000)
   }
 
@@ -89,8 +79,8 @@ const SideBar = observer(class SideBar extends Component {
   renderMode() {
     const { autoAdd } = this.props.store
     return(
-      <div className='Button'>
-        <div className='ModeText'>
+      <div className='ModeText Button'>
+        <div>
             { autoAdd ? 'Auto' : 'Edit' }
         </div>
       </div>
