@@ -1,6 +1,11 @@
 @keyframes blink {
   to {color: transparent}
 }
+
+.word {
+  font-size: 1.9vh;
+}
+
 .WordBank {
   width: 20vw;
   height: 90vh;
