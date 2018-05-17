@@ -1,17 +1,18 @@
 
 .ArrayContainer {
-  width: 1000px;
+  z-index: 6;
 }
 .Row {
   display: flex;
-  height: 20px;
 }
 .Element {
-  width: 20px;
-  height: 20px;
+  width: 2vmin;
+  height: 2vmin;
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 }
 .Word {
   background: rgba(236, 100, 75, .4);

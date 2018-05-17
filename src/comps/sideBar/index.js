@@ -5,7 +5,6 @@ import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
 
 const buttons = [
-  {n:'Save', g: 'save'},
   {n:'Export', g: 'export' },
   {n:'WordSearch', g:'search', p: true},
   {n:'CrossWord', g:'plus', p: true}
