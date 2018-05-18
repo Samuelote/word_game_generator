@@ -3,55 +3,45 @@ import { observer } from 'mobx-react'
 import './style.css'
 
 const WordBank = observer(class WordBank extends Component {
+  constructor() {
+    super()
+    this.handleClick  = this.handleClick.bind(this)
+    this.handleDelete = this.handleDelete.bind(this)
+  }
 
-  componentDidMount() {
-    document.addEventListener('mousedown', (e) => {
-      const { target } = e
-      if (target.classList[0] === "word") {
-        this.props.store.deleteWord(target)
-      }
-    })
+  handleDelete(e) {
+    const { target } = e
+    if (target.nodeName === 'LI') this.props.store.deleteWord(target)
+  }
+
+  handleClick(e) {
+    const { store } = this.props
+    if (store.wordBank.length > 0) store.regenPuzzle(store.puzzleType)
   }
 
   renderWords() {
     return this.props.store.wordBank.map((w,i) => (
-      <li
-        key={i}
-        className={`word${w.added ? " added" : ""}`}
-      >
+      <li key={i} className={`word${w.added ? " added" : ""}`}>
         {w}
       </li>
     ))
   }
 
-  deleteWord(){
-    this.props.store.deleteWord()
-  }
-  activateBtn() {
-    if (this.props.store.wordBank.length > 0){
-      document.querySelector('.Btn').classList.add('activeBtn')
-      document.querySelector('.Btn').classList.remove('inactiveBtn')
-    }
-  }
-
-  handleClick(e) {
-    const arrCont = document.querySelector('.ArrayContainer')
-    const store = this.props.store
-    if (arrCont) arrCont.innerHTML = ''
-
-    if (e.target.className.includes(' activeBtn')) store.regenPuzzle(store.puzzleType);
-  }
 
   render() {
-    const wordBank = this.props.store.wordBank;
-    setTimeout(()=>this.activateBtn(),0)
+    const noWords = this.props.store.wordBank.length < 1
     return(
       <div>
         <div className="WordBank">
-          <h1 className='h1'>{(wordBank.length > 0) ? 'Click Word To Delete' : 'Add Words'}</h1>
-          <button className='Btn inactiveBtn' onClick={this.handleClick.bind(this)}>Draw Puzzle</button>
+          <h1>{ noWords ? 'Add Words' : 'DoubleClick Word To Delete' }</h1>
+          <button
+            className={`Btn ${noWords ? "inactiveBtn" : "activeBtn"}`}
+            onClick={ this.handleClick }
+          >
+            Draw Puzzle
+          </button>
           <h3>Word Bank</h3>
-          <ul className="Words">
+          <ul className="Words" onDoubleClick={this.handleDelete}>
             {
               this.renderWords()
             }

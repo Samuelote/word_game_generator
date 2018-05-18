@@ -12,18 +12,16 @@ html, body, #root {
 
 .Warning {
   position: absolute;
-  font-size: 3em;
+  font-size: 2em;
   letter-spacing: 2px;
   font-weight: 900;
   background: radial-gradient(to center, white, #3b3a36);
   color: #3b3a36;
   width: 100%;
-  z-index: 5;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  opacity: 0;
 }
 
 .ContentWrapper {

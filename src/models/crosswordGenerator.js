@@ -21,27 +21,24 @@ export default function generateCrossword(words) {
     if (
        justChecking &&
        // check for vertically travelling words
-       (
-         dir === 'v' && mtrx[y + word.length - 1] === undefined || Boolean(mtrx[y-1][x])
-       )
-       ||
+       (dir === 'v' && (mtrx[y+word.length-1] === undefined || Boolean(mtrx[y-1][x]) || Boolean(mtrx[y+word.length][x]) )) ||
        //check for horizintally travelling words
-       (
-         dir === 'h' && (mtrx[y][x + word.length - 1] === undefined) || Boolean(mtrx[y][x-1])
-       )
+       (dir === 'h' && ((mtrx[y][x + word.length - 1] === undefined) || Boolean(mtrx[y][x-1]) || Boolean(mtrx[y][x+word.length])))
      ) return false
 
     else if (justChecking) {
       for (let i=0;i<word.length; i++) {
         if(dir === 'v') {
-          if (mtrx[y+i][x] !== 0 && mtrx[y+i][x] !== word[i]){
-             return false
-           }
+          if (mtrx[y+i][x] !== 0 && mtrx[y+i][x] !== word[i]) return false
+          else if (mtrx[y+i][x] !== word[i]) {
+            if (mtrx[y+i][x+1] !== 0 || mtrx[y+i][x-1] !== 0) return false
+          }
         }
         else {
-          if (mtrx[y][x+i] !== 0 && mtrx[y][x+i] !== word[i]){
-             return false
-           }
+          if (mtrx[y][x+i] !== 0 && mtrx[y][x+i] !== word[i]) return false
+          else if (mtrx[y][x+i] !== word[i]) {
+            if (mtrx[y+1][x+i] !== 0 || mtrx[y-1][x+i] !== 0) return false
+          }
         }
       }
       return true;

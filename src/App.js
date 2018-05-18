@@ -15,8 +15,13 @@ const App = observer(class App extends Component {
         <WordBank store={this.props.store} />
         <SideBar store={this.props.store} />
         <div className="ContentWrapper">
-          <div className='Warning'>ADD WORDS TO WORD BANK</div>
-
+          {
+            (this.props.store.wordBank.length < 1)
+              ? (<div className="Warning">
+                  <p>Add words to create a puzzle!</p>
+                </div>)
+              : ""
+          }
           {
             (this.props.store.puzzleType === "WordSearch")
               ? <WordSearch store={this.props.store} />
