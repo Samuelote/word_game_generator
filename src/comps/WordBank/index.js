@@ -27,11 +27,9 @@ const WordBank = observer(class WordBank extends Component {
     ))
   }
 
-
   render() {
     const noWords = this.props.store.wordBank.length < 1
     return(
-      <div>
         <div className="WordBank">
           <h1>{ noWords ? 'Add Words' : 'DoubleClick Word To Delete' }</h1>
           <button
@@ -47,7 +45,6 @@ const WordBank = observer(class WordBank extends Component {
             }
           </ul>
         </div>
-      </div>
     )
   }
 })

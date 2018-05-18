@@ -5,18 +5,12 @@ import './style.css'
 
 const WordSearch = observer(class WordSearch extends Component {
 
-  constructor(){
-    super();
-    this.state = {
-      grid: null,
-    }
-  }
-
 // I had to use this print function because the double map didnt work.
-// I needed to map a div inside another mapped div (row and letter) and you can't go that deep within jsx.
+// I needed to map a div inside another mapped div (row and letter)
+//and you can't go that deep within jsx. -> wrong
   print(){
     const parentContainer = document.querySelector('.ArrayContainer')
-    const grid = this.props.store.wordsearch[0]
+    const grid = this.props.store.wordsearch
     for (let i = 0; i < grid.length; i++){
       const div = document.createElement('div')
       div.className = 'Row'
@@ -30,10 +24,8 @@ const WordSearch = observer(class WordSearch extends Component {
       }
     }
   }
-
+  
   render() {
-    if (this.props.store.wordsearch[0]) setTimeout(()=>this.print(), 0)
-    // console.log(document.querySelector('.ArrayContainer'))
     return (
         <div className="GridContainer">
           <div className='ArrayContainer'>
