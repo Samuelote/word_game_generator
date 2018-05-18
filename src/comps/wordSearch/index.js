@@ -17,7 +17,7 @@ const WordSearch = observer(class WordSearch extends Component {
                 key={`x${x}y${y}`}
                 className={`Element ${wordsearch[y][x] === wordsearch[y][x].toLowerCase() ? "Word" : ""}`}
               >
-                {cell}
+                {cell.toUpperCase()}
               </div>
             ))
           }
