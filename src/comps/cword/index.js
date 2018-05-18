@@ -3,15 +3,6 @@ import { observer } from 'mobx-react'
 import './styles.css'
 
 const Crossword = observer(class Crossword extends Component {
-  constructor() {
-    super()
-    this.handleClick = this.handleClick.bind(this)
-  }
-
-  handleClick(e) {
-    console.log(e.target.classList)
-  }
-
   isWordStart(x, y) {
     const { plantedWords } = this.props.store.crossword
     let i
@@ -25,14 +16,14 @@ const Crossword = observer(class Crossword extends Component {
   render() {
     const { mtrx, top } = this.props.store.crossword
     return(
-      <div className="CrosswordWrapper" onDoubleClick={this.handleClick}>
+      <div className="CrosswordWrapper">
         {
           mtrx.map((row, y) => row.map((cell, x) => (
             <div
               key={`x${x}y${y}`}
               style={{left: `${x * 1.5}em`, top:`${(y - top + 1) * 1.5}em`}}
               className={`CWCell ${cell !== 0 ? `Filled ${this.isWordStart(x, y)}` : ""}`}
-              onDrop={this.handleCellDrop}
+              onDrop={ this.handleCellDrop }
             >
               { (cell !== 0) ? cell : "" }
             </div>

@@ -29,11 +29,10 @@ export class MainStore {
 
       //observables
       wordBank: testWords,
-      crossword: {plantedWords: [], mtrx: [], top:0},
+      crossword: { plantedWords: [], mtrx: [], top:0 },
       wordsearch: [],
       autoAdd: false,
       puzzleType: 'WordSearch',
-
 
       //actions
       deleteWord: action ((e)=>{
@@ -45,6 +44,8 @@ export class MainStore {
         // this.wordMap.set(loc, nw.toUpperCase())
         this.wordBank.push(nw.toUpperCase())
         if (this.autoAdd) this.regenPuzzle('CrossWord')
+
+        //Scrolls to bottom automatically
         const el = document.querySelector('.Words')
         el.scrollTop = el.scrollHeight
       }),
@@ -54,8 +55,9 @@ export class MainStore {
       setPuzzleType: action((pt) => this.puzzleType = pt),
 
       regenPuzzle: action((name) => {
-        (name === 'WordSearch') ? this.wordsearch = wordSearchGenerator(this.wordBank) :
-        this.crossword = crosswordGenerator(this.wordBank)
+        (name === 'WordSearch')
+          ? this.wordsearch = wordSearchGenerator(this.wordBank)
+          : this.crossword  = crosswordGenerator(this.wordBank)
       })
     })
   }

@@ -4,18 +4,9 @@ import { observer } from 'mobx-react'
 import './style.css'
 
 const WordSearch = observer(class WordSearch extends Component {
-
-  constructor(){
-    super();
-    this.state = {
-      grid: null,
-      firstEl: null,
-      secondEl: null
-    }
-  }
-
 // I had to use this print function because the double map didnt work.
-// I needed to map a div inside another mapped div (row and letter) and you can't go that deep within jsx.
+// I needed to map a div inside another mapped div (row and letter)
+//and you can't go that deep within jsx. -> wrong
   print(){
     if (!document.querySelector('.Row')){
       const parentContainer = document.querySelector('.ArrayContainer')
@@ -37,8 +28,6 @@ const WordSearch = observer(class WordSearch extends Component {
   }
 
   render() {
-    if (this.props.store.wordsearch[0]) setTimeout(()=>this.print(), 0)
-    // console.log(document.querySelector('.ArrayContainer'))
     return (
         <div className="GridContainer">
           <div className='ArrayContainer'>

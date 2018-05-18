@@ -135,6 +135,6 @@ export default function generateWordSearch(words) {
     }
   }
 
-  return grid;
+  return grid[0];
 
 }

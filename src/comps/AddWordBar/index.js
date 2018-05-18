@@ -28,7 +28,7 @@ const AddWordBar = observer(class AddWordBar extends Component {
 
   handleChange(e) {
     //prevents spaces from being typed
-    if (e.target.value.split('').pop() != ' ') this.setState({ newWord: e.target.value })
+    this.setState({ newWord: e.target.value })
   }
 
   render() {
