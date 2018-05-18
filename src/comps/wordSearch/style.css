@@ -1,13 +1,13 @@
 .ArrayContainer {
-  display: flex;
+  /* display: flex;
   justify-content: center;
   align-items: center;
-  flex-direction: column;
+  flex-direction: column; */
+  z-index: 6;
 }
 
 .Row {
   display: flex;
-  height: 20px;
 }
 
 .Element {
@@ -16,6 +16,8 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+  user-select: none;
 }
 .Word {
   background: rgba(236, 100, 75, .4);

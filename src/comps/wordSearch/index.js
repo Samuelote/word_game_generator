@@ -4,7 +4,6 @@ import { observer } from 'mobx-react'
 import './style.css'
 
 const WordSearch = observer(class WordSearch extends Component {
-
 // I had to use this print function because the double map didnt work.
 // I needed to map a div inside another mapped div (row and letter)
 //and you can't go that deep within jsx. -> wrong

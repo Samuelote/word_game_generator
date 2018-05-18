@@ -119,6 +119,9 @@ export default function generateWordSearch(words) {
       }
     }
   }
+
+
+
   function drawLetters(){
     for (let i = 0; i < grid[0].length; i++){
       for (let j = 0; j < grid[0][i].length; j++){
