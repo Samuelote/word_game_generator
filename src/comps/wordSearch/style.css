@@ -11,8 +11,8 @@
 }
 
 .Element {
-  width: 2vmin;
-  height: 2vmin;
+  width: 3vmin;
+  height: 3vmin;
   display: flex;
   justify-content: center;
   align-items: center;
