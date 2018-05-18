@@ -28,7 +28,7 @@ export class MainStore {
       //unamed keys are observables
 
       //observables
-      wordBank: testWords,
+      wordBank: [],
       crossword: { plantedWords: [], mtrx: [], top:0 },
       wordsearch: [],
       autoAdd: false,
@@ -40,6 +40,7 @@ export class MainStore {
         const index = this.wordBank.indexOf(word)
         this.wordBank.splice(index,1)
       }),
+
       addWord: action((nw, loc) => {
         // this.wordMap.set(loc, nw.toUpperCase())
         this.wordBank.push(nw.toUpperCase())

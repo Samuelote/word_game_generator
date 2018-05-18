@@ -9,26 +9,28 @@ const WordSearch = observer(class WordSearch extends Component {
 // I needed to map a div inside another mapped div (row and letter)
 //and you can't go that deep within jsx. -> wrong
   print(){
-    const parentContainer = document.querySelector('.ArrayContainer')
-    const grid = this.props.store.wordsearch
-    for (let i = 0; i < grid.length; i++){
-      const div = document.createElement('div')
-      div.className = 'Row'
-      parentContainer.appendChild(div)
-      for (let j = 0; j < grid[i].length; j++){
-        const el = document.createElement('div')
-        el.className = 'Element'
-        if (grid[i][j] === grid[i][j].toLowerCase()) el.classList.add('Word')
-        el.innerHTML = grid[i][j].toUpperCase()
-        document.getElementsByClassName('Row')[i].appendChild(el)
-      }
-    }
+    const { wordsearch } = this.props.store
+    return wordsearch.map((row, y) =>(
+        <div key={"row" + y} className="Row">
+          {
+            row.map((cell, x) => (
+              <div
+                key={`x${x}y${y}`}
+                className={`Element ${wordsearch[y][x] === wordsearch[y][x].toLowerCase() ? "Word" : ""}`}
+              >
+                {cell}
+              </div>
+            ))
+          }
+        </div>
+      ))
   }
-  
+
   render() {
     return (
         <div className="GridContainer">
           <div className='ArrayContainer'>
+            { this.print() }
           </div>
         </div>
     );
