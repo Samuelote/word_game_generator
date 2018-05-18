@@ -1,0 +1,27 @@
+{
+  "name": "word_game_generator",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "author": "chadAndSam",
+  "dependencies": {
+    "eslint": "^4.5.0",
+    "eslint-config-airbnb": "^15.1.0",
+    "eslint-plugin-import": "^2.7.0",
+    "eslint-plugin-jsx-a11y": "^6.0.2",
+    "eslint-plugin-react": "^7.3.0",
+    "jest-tobetype": "^1.1.0",
+    "mobx": "^4.2.1",
+    "mobx-react": "^5.1.2",
+    "react": "^16.3.2",
+    "react-dom": "^16.3.2",
+    "react-scripts": "1.0.11"
+  },
+  "scripts": {
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start"
+  },
+  "proxy": "http://localhost:5000"
+}
