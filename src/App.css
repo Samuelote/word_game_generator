@@ -15,13 +15,16 @@ html, body, #root {
   font-size: 2em;
   letter-spacing: 2px;
   font-weight: 900;
-  background: radial-gradient(to center, white, #3b3a36);
+  background: transparent;
   color: #3b3a36;
   width: 100%;
   height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
+  transition: 1s;
+  opacity: .2;
+  animation: blinker .8s alternate infinite;
 }
 
 .ContentWrapper {
@@ -35,5 +38,4 @@ html, body, #root {
   display: flex;
   justify-content: center;
   align-items: center;
-
 }

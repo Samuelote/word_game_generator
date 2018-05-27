@@ -19,7 +19,8 @@ button:focus {
 }
 
 .AddWordBar>input {
-  background: linear-gradient(to right, #e9ece5, lightgrey);
+  background: linear-gradient(to left, gainsboro, #e3e3e3);
+
   padding-left: 2%;
   width: 50%;
   height: 60%;

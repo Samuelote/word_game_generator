@@ -27,8 +27,14 @@ const AddWordBar = observer(class AddWordBar extends Component {
   }
 
   handleChange(e) {
-    //prevents spaces from being typed
-    this.setState({ newWord: e.target.value })
+    // KEEP THIS CHAD
+    //prevents anything except letters from being typed
+    if (
+      (e.target.value.split('').pop() <  String.fromCharCode(90) &&
+      e.target.value.split('').pop() >  String.fromCharCode(64)) ||
+      (e.target.value.split('').pop() <  String.fromCharCode(122) &&
+      e.target.value.split('').pop() >  String.fromCharCode(96))
+    ) this.setState({ newWord: e.target.value })
   }
 
   render() {

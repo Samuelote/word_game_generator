@@ -7,9 +7,9 @@ export default function generateWordSearch(words) {
     const longestWord = (words.length > 0) ?
                             words.sort(function (a, b) { return b.length - a.length; })[0].length :
                                 10;
-    for (let i = 0; i < Math.floor(longestWord*1.5); i++){
+    for (let i = 0; i < Math.floor(longestWord*1.7); i++){
       let array2 = [];
-      array2.length = (longestWord >= 10 ) ? Math.floor(longestWord*1.5) : 20;
+      array2.length = (longestWord >= 10 ) ? Math.floor(longestWord*1.7) : 20;
       array2.fill('.')
       arr.push(array2)
     }
@@ -134,7 +134,6 @@ export default function generateWordSearch(words) {
       }
     }
   }
-
   return grid[0];
 
 }

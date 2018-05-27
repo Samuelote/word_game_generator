@@ -31,7 +31,7 @@ const WordBank = observer(class WordBank extends Component {
     const noWords = this.props.store.wordBank.length < 1
     return(
         <div className="WordBank">
-          <h1>{ noWords ? 'Add Words' : 'DoubleClick Word To Delete' }</h1>
+          <h1>{ noWords ? 'Add Words' : 'Double Click Word To Delete' }</h1>
           <button
             className={`Btn ${noWords ? "inactiveBtn" : "activeBtn"}`}
             onClick={ this.handleClick }

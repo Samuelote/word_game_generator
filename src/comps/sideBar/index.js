@@ -3,6 +3,9 @@ import { observer } from 'mobx-react'
 import CrossWord from '../../assets/crossWord.png'
 import WordSearch from '../../assets/WordSearch.png'
 import './style.css'
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 const buttons = [
   {n:'Export', g: 'export' },
@@ -25,12 +28,26 @@ const SideBar = observer(class SideBar extends Component {
     this.toggleType('WordSearch')
   }
 
+  write(){
+    for (let i in this.props.store.wordsearch.length){
+      if (i % 40 === 0) {
+        console.log(this.props.store.wordsearch[i])
+        this.props.store.wordsearch[i] = this.props.store.wordsearch[i]+'\n'
+      }
+    }
+    var docDefinition = { content: this.props.store.wordsearch.toString().toUpperCase().split(',').join('') };
+    pdfMake.createPdf(docDefinition).download();
+    // pdfMake.createPdf(docDefinition).open();
+
+  }
+
   handleClicks(e) {
     const name = e.target.classList[0]
     switch(name){
       case 'Save':
         break
       case 'Export':
+        this.write()
         break
       case 'ModeText':
         this.props.store.toggleAutoAdd()
@@ -44,11 +61,6 @@ const SideBar = observer(class SideBar extends Component {
       default:
         console.log(name)
     }
-  }
-
-  blinkToAddWords() {
-    document.querySelector('.Warning').style.animation = 'blinker .8s 2 alternate'
-    setTimeout(()=>document.querySelector('.Warning').style.animation = 'none', 2000)
   }
 
   toggleType(name) {

@@ -28,6 +28,7 @@
     "jest-tobetype": "^1.1.0",
     "mobx": "^4.2.1",
     "mobx-react": "^5.1.2",
+    "pdfmake": "^0.1.36",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.0.11"
