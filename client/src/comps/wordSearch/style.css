@@ -1,13 +1,18 @@
-
 .ArrayContainer {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
   z-index: 6;
 }
+
 .Row {
   display: flex;
 }
+
 .Element {
-  width: 2vmin;
-  height: 2vmin;
+  width: 3vmin;
+  height: 3vmin;
   display: flex;
   justify-content: center;
   align-items: center;

@@ -8,6 +8,7 @@ import WordBank from './comps/WordBank'
 import './App.css'
 
 const App = observer(class App extends Component {
+  
   render() {
     return (
       <div className="App">

@@ -1,24 +1,12 @@
 {
   "name": "word_game_generator",
-  "version": "0.1.0",
-  "private": true,
-  "main": "public/electron.js",
-  "homepage": "./",
-  "author": "chadwick",
-  "build": {
-    "appId": "com.electron.word_game_generator",
-    "win": {
-      "iconUrl": "https://cdn2.iconfinder.com/data/icons/designer-skills/128/react-256.png"
-    },
-    "files": [
-      "build/**/*",
-      "node_modules/**/*"
-    ],
-    "directories": {
-      "buildResources": "assets"
-    }
-  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/Mrchadparkour/word_game_generator.git",
+  "author": "Chadwick <cplattkuhn@gmail.com>",
+  "license": "MIT",
   "dependencies": {
+<<<<<<< HEAD
     "electron-is-dev": "^0.3.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
@@ -32,21 +20,12 @@
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.0.11"
+=======
+    "express": "^4.16.3"
+>>>>>>> 2de4f6745841dd0701263f764a5ed0550e7fc88d
   },
   "scripts": {
-    "start": "nf start -p 3000",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "preelectron-pack": "yarn build",
-    "react-start": "react-scripts start",
-    "electron-start": "electron ."
-  },
-  "devDependencies": {
-    "case-sensitive-paths-webpack-plugin": "^2.1.2",
-    "concurrently": "^3.5.1",
-    "electron": "^2.0.0",
-    "electron-builder": "^20.13.3",
-    "wait-on": "^2.1.0"
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
   }
 }
