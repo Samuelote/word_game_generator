@@ -1,0 +1,29 @@
+.TitleContainer {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  height: 10%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.TitleContainer > input {
+  height: 100%;
+  width: 100%;
+  text-align: center;
+  background: transparent;
+  border: none;
+  font-size: 3.3vh;
+  transition: 1s;
+  border-bottom: 1px solid #3b3a36;
+}
+.TitleContainer > input:focus {
+  font-size: 3.7vh;
+  background: lightgrey;
+  border: none;
+  border-bottom: 3px solid #3b3a36;
+}
+.TitleContainer > input::placeholder {
+  font-weight: 900;
+  opacity: .5;
+}

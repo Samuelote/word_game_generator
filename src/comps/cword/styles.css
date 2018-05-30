@@ -1,0 +1,47 @@
+@keyframes fadeIn {
+  to{opacity: 1}
+}
+
+.CWCell {
+  margin: 0;
+  width: 1.5em;
+  height: 1.5em;
+  position: absolute;
+  user-select: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-left: 50px;
+}
+
+.CWCell > p {
+  user-select: none;
+}
+
+.WordStart {
+    background: #EC644B;
+}
+
+.CrosswordWrapper {
+  display: flex;
+  position: absolute;
+  left: 0px;
+  top: 30%;
+  justify-content: center;
+  height:70%;
+  width: 50%;
+  overflow: auto;
+  opacity: 0;
+  animation: fadeIn .5s 1;
+  animation-fill-mode: forwards;
+}
+
+.Filled {
+  border: 1px solid black;
+}
+
+@media only screen and (max-width: 1600px ) {
+  .CrosswordWrapper {
+    width: 70%;
+  }
+}

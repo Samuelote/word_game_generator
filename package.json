@@ -1,31 +1,30 @@
 {
   "name": "word_game_generator",
-  "version": "1.0.0",
-  "main": "index.js",
-  "repository": "https://github.com/Mrchadparkour/word_game_generator.git",
-  "author": "Chadwick <cplattkuhn@gmail.com>",
-  "license": "MIT",
+  "version": "0.1.0",
+  "private": true,
+  "homepage": "./",
+  "author": "chadAndSam",
   "dependencies": {
-<<<<<<< HEAD
-    "electron-is-dev": "^0.3.0",
     "eslint": "^4.5.0",
     "eslint-config-airbnb": "^15.1.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-jsx-a11y": "^6.0.2",
     "eslint-plugin-react": "^7.3.0",
+    "express": "^4.16.3",
     "jest-tobetype": "^1.1.0",
     "mobx": "^4.2.1",
     "mobx-react": "^5.1.2",
+    "pdfjs-dist": "^2.0.489",
     "pdfmake": "^0.1.36",
     "react": "^16.3.2",
     "react-dom": "^16.3.2",
     "react-scripts": "1.0.11"
-=======
-    "express": "^4.16.3"
->>>>>>> 2de4f6745841dd0701263f764a5ed0550e7fc88d
   },
   "scripts": {
-    "start": "node index.js",
-    "heroku-postbuild": "cd client && yarn --production=false && yarn run build"
-  }
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject",
+    "start": "react-scripts start"
+  },
+  "proxy": "http://localhost:5000"
 }

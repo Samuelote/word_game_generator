@@ -1,0 +1,68 @@
+.AddWordBar {
+  position: absolute;
+  right: 0;
+  top: 0;
+  display: flex;
+  align-items: center;
+  justify-content:flex-end;
+  height: 10vh;
+  width: 100vw;
+  background: #3b3a36;
+  z-index: 3;
+}
+
+input:focus,
+select:focus,
+textarea:focus,
+button:focus {
+    outline: none;
+}
+
+.AddWordBar>input {
+  background: linear-gradient(to left, gainsboro, #e3e3e3);
+  padding-left: 2%;
+  width: 50%;
+  height: 60%;
+  border-radius: 50px;
+  color: black;
+  font-size: 3.2vh;
+  font-weight: bold;
+  border:3px solid #3b3a36;
+  transition: 1s;
+}
+.AddWordBar>input:focus {
+  font-size: 3.5vh;
+}
+
+.AddWordBar>input::placeholder {
+  color: darkgrey;
+}
+.AddWordBar>div {
+  color: white;
+  position: absolute;
+  left: 5vw;
+  font-size: 4em;
+}
+.AddWordBar>button {
+  border-radius: 50%;
+  margin-left: .5vw;
+  margin-right: 2vw;
+  width: 5vh;
+  height: 5vh;
+  border: none;
+  background: #EC644B;
+  position: relative;
+  transition: .1s;
+
+}
+.AddWordBar>button:hover {
+  opacity: .5;
+}
+.AddWordBar>button>.glyphicon {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: white;
+  font-size: 2vh;
+  font-weight: 100;
+}

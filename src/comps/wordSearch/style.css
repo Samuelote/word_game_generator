@@ -1,0 +1,24 @@
+
+.ArrayContainer {
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  z-index: 6;
+}
+
+.Row {
+  display: flex;
+
+}
+
+.Element {
+  width: 2vmin;
+  height: 2vmin;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.Word {
+  background: rgba(236, 100, 75, .4);
+}

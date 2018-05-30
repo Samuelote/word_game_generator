@@ -1,0 +1,53 @@
+.HintList {
+  position: absolute;
+  width: 50%;
+  height: 90%;
+  top: 10%;
+  right: 0px;
+  border-left: 3px #3b3a36 solid;
+  background: transparent;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: center;
+  font-size: 2vw;
+  color: #3b3a36;
+  font-weight: 700;
+  opacity: 0;
+  animation: blink .5s 1 linear;
+  animation-fill-mode: forwards;
+}
+
+.HintList > input {
+  font-weight: normal;
+  width: 100%;
+  font-size: 1.3vw;
+  border: none;
+  border-bottom: #3b3a36 solid .5px;
+  background: transparent;
+  padding-left: 1vw;
+}
+.HintList > input:focus {
+  transition: .5s;
+  border-color: #EC644B;
+}
+.HintList > input:focus::placeholder {
+  transition: .2s;
+  color: #EC644B;
+}
+
+.HintList i {
+  opacity: 0;
+  animation: blink 1s infinite linear;
+}
+@keyframes blink {
+  to{opacity: 1}
+}
+
+
+
+@media only screen and (max-width: 1600px ) {
+  .HintList {
+    width: 30%;
+  }
+}
