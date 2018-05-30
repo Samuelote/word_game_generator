@@ -4,6 +4,11 @@
 
 .word {
   font-size: 1.9vh;
+
+}
+.word:hover {
+  cursor: pointer;
+  color: #EC644B;
 }
 
 .WordBank {
@@ -61,7 +66,7 @@
 
 .WordBank > div > p {
   color: black;
-  font-size: 2vh;
+  font-size: 3vh;
   margin-right: 10%;
   cursor: pointer;
 }

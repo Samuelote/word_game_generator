@@ -6,15 +6,15 @@ import writeCrossPdf from './models/writeCrossPdf'
 
 
 const testWords = [
-  'OVEROBSESSIONIST',
-  'ANCHORSCHOOL',
-  'MUTILATION',
-  'EXPLOSION',
-  'LEVERAGE',
-  'TABULAR',
-  'CLOSURE',
-  'FISSURE',
-  'TROUBLE',
+  // 'OVEROBSESSIONIST',
+  // 'ANCHORSCHOOL',
+  // 'MUTILATION',
+  // 'EXPLOSION',
+  // 'LEVERAGE',
+  // 'TABULAR',
+  // 'CLOSURE',
+  // 'FISSURE',
+  // 'TROUBLE',
   // 'ILLUSIONISITIC',
   // 'ACRONOPHOBIA',
   // 'APHASIA',
@@ -68,7 +68,7 @@ export class MainStore {
       write: action((name) => {
         if (!this.title) alert('Please add a title for your puzzle.')
         else if (name === 'WordSearch' && this.wordsearch.length){
-          writeSearchPdf(this.wordsearch, this.title)
+          writeSearchPdf(this.wordsearch, this.title, this.wordBank)
         }
         else if (name === 'CrossWord' && this.crossword.mtrx.length){
           if (this.hintList.length != this.wordBank.length) alert('Please fill out of the hints')

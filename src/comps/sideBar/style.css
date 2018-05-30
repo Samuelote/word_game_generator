@@ -81,6 +81,7 @@
 
 .ModeText {
   position: absolute;
+  left: 0px;
   opacity: 1;
   font-size: 2em;
   color: #edf5e1;
@@ -93,5 +94,13 @@
    .tooltip, .ModeText {
       font-size: 1.4em;
    }
-
+}
+@media screen and (max-width: 2100px) {
+   .tooltip, .ModeText {
+      font-size: 1.4em;
+      left: 30px;
+      color: #edf5e1;
+      text-shadow: 2px 2px #3b3a36;
+      text-align: left;
+   }
 }

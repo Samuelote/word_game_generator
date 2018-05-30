@@ -65,7 +65,7 @@ const grid = {
     content: [
         { text: title, style: 'header' },
         table(wordBank.mtrx),
-        {text: '\n\nHints:', style: 'headers'},
+        {text: '\n\nHint List:', style: 'headers'},
         {
           ol: hintList
         },

@@ -4,7 +4,7 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 
 
 
-export default function writePdf(wordBank, title) {
+export default function writePdf(wordBank, title, words) {
 
 let fontSize = 0;
 let margin = 0;
@@ -48,7 +48,12 @@ function table(rows) {
 const grid = {
     content: [
         { text: title, style: 'header' },
-        table(wordBank)
+        table(wordBank),
+        // {text: '\n\n Word bank:', style: 'headers'},
+        {
+          ol: words
+        }
+
     ],
     styles: {
         header: {
