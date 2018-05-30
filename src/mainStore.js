@@ -68,7 +68,7 @@ export class MainStore {
       write: action((name) => {
         if (!this.title) alert('Please add a title for your puzzle.')
         else if (name === 'WordSearch' && this.wordsearch.length){
-          writeSearchPdf(this.wordsearch, this.title, this.wordBank)
+          writeSearchPdf(this.wordsearch, this.title, [...this.wordBank])
         }
         else if (name === 'CrossWord' && this.crossword.mtrx.length){
           if (this.hintList.length != this.wordBank.length) alert('Please fill out of the hints')

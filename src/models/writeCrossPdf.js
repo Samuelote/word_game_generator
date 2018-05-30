@@ -7,7 +7,6 @@ pdfMake.vfs = pdfFonts.pdfMake.vfs;
 export default function writePdf(wordBank, title, hintList) {
 let fontSize = 0;
 let margin = 0;
-console.log(hintList)
 function assignVars(){
   const l = wordBank.mtrx[0].length
   fontSize = (l < 35 && l > 28) ? l/4.5 : (l <= 28 && l > 19) ? l/2.7 : l/1.7;
@@ -65,10 +64,11 @@ const grid = {
     content: [
         { text: title, style: 'header' },
         table(wordBank.mtrx),
-        {text: '\n\nHint List:', style: 'headers'},
+        {text: '\n\nHint List:'},
         {
           ol: hintList
         },
+
     ],
     styles: {
         header: {
