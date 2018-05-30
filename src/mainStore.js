@@ -66,11 +66,14 @@ export class MainStore {
           : this.crossword  = crosswordGenerator(this.wordBank)
       }),
       write: action((name) => {
-        if (name === 'WordSearch' && this.wordsearch.length){
+        if (!this.title) alert('Please add a title for your puzzle.')
+        else if (name === 'WordSearch' && this.wordsearch.length){
           writeSearchPdf(this.wordsearch, this.title)
         }
         else if (name === 'CrossWord' && this.crossword.mtrx.length){
-          writeCrossPdf(this.crossword, this.title, this.hintList)
+          if (this.hintList.length != this.wordBank.length) alert('Please fill out of the hints')
+          else if (this.hintList.includes(undefined)) alert('Please fill out all of the hints')
+          else writeCrossPdf(this.crossword, this.title, this.hintList)
         }
         else {
           alert('Draw puzzle before exporting')

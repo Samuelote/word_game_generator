@@ -14,7 +14,6 @@
   background: transparent;
   border: none;
   font-size: 3.3vh;
-  transition: 1s;
   border-bottom: 1px solid #3b3a36;
 }
 .TitleContainer > input:focus {
@@ -22,6 +21,11 @@
   background: lightgrey;
   border: none;
   border-bottom: 3px solid #3b3a36;
+  border-color: #EC644B;
+}
+.TitleContainer > input:focus::placeholder {
+  color: #EC644B;
+  opacity: 1;
 }
 .TitleContainer > input::placeholder {
   font-weight: 900;

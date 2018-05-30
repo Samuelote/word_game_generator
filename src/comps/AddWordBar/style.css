@@ -28,10 +28,13 @@ button:focus {
   font-size: 3.2vh;
   font-weight: bold;
   border:3px solid #3b3a36;
-  transition: 1s;
 }
 .AddWordBar>input:focus {
   font-size: 3.5vh;
+}
+
+.AddWordBar>input:focus::placeholder {
+  color: #EC644B
 }
 
 .AddWordBar>input::placeholder {

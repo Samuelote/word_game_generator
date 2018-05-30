@@ -65,6 +65,6 @@ const grid = {
 
 }
 
-pdfMake.createPdf(grid).download();
+pdfMake.createPdf(grid).download(title);
 
 }
