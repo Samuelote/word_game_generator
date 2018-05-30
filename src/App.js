@@ -10,6 +10,10 @@ import HintList from './comps/hintList'
 import './App.css'
 
 const App = observer(class App extends Component {
+  componentDidMount(){
+    document.title = "Word Game Generator"
+    console.log(document)
+  }
 
   render() {
     return (
