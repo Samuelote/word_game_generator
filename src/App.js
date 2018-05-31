@@ -12,12 +12,24 @@ import './App.css'
 const App = observer(class App extends Component {
   componentDidMount(){
     document.title = "Word Game Generator"
-    console.log(document)
+  }
+
+  hideDiv(){
+    document.querySelector('.Error').style.height = 0
+    document.querySelector('.ErrorChildren').style.opacity = 0
+    document.querySelector('.ErrorChildren').style.top = '-600px'
+    setTimeout(()=>document.querySelector('.Error').style.visibility = 'hidden', 100);
   }
 
   render() {
     return (
       <div className="App">
+        <div className='Error'>
+          <div className='ErrorChildren'>
+            <button onClick={this.hideDiv.bind(this)}>X</button>
+            <div className='msg'>This is an error that needs to extend extremly far for warpping</div>
+          </div>
+        </div>
         <AddWordBar store={this.props.store} />
         <WordBank store={this.props.store} />
         <SideBar store={this.props.store} />

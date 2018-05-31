@@ -16,7 +16,7 @@ const WordBank = observer(class WordBank extends Component {
 
   handleClick(e) {
     const { store } = this.props
-    if (store.wordBank.length > 0) store.regenPuzzle(store.puzzleType)
+    if (store.wordBank.length > 3) store.regenPuzzle(store.puzzleType)
   }
 
   renderWords() {
@@ -28,7 +28,7 @@ const WordBank = observer(class WordBank extends Component {
   }
 
   render() {
-    const noWords = this.props.store.wordBank.length < 1
+    const noWords = this.props.store.wordBank.length < 4
     return(
         <div className="WordBank">
           <h1>{ noWords ? 'Add Words' : 'Double Click Word To Delete' }</h1>
