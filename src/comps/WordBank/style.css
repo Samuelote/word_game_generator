@@ -75,10 +75,12 @@
   background: #EC644B;
   color: white;
   cursor: pointer;
-  transition: .3s;
 }
 .activeBtn:hover {
+  font-size: 18.6px;
   opacity: 1;
+  width: 61%;
+  height: 7.1vh;
   box-shadow: -3px 0px 70px -16px black;
 }
 

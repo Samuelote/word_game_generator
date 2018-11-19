@@ -14,6 +14,7 @@ export default function generateWordSearch(words) {
       arr.push(array2)
     }
     grid.push(arr);
+    
     for (let j = 0; j < words.length; j++){
       switcher(words[j], Math.floor(Math.random() * ((3) - 0) + 0))
     }

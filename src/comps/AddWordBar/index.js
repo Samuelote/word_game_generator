@@ -27,13 +27,12 @@ const AddWordBar = observer(class AddWordBar extends Component {
   }
 
   handleChange(e) {
-    // KEEP THIS CHAD
     //prevents anything except letters from being typed
     if (e.target.value.length <= 1) this.setState({ newWord: e.target.value })
     else if (
-      (e.target.value.split('').pop() <  String.fromCharCode(90) &&
+      (e.target.value.split('').pop() <  String.fromCharCode(91) &&
       e.target.value.split('').pop() >  String.fromCharCode(64)) ||
-      (e.target.value.split('').pop() <  String.fromCharCode(122) &&
+      (e.target.value.split('').pop() <  String.fromCharCode(123) &&
       e.target.value.split('').pop() >  String.fromCharCode(96)) &&
       (e.target.value.length <= 20)
     ) this.setState({ newWord: e.target.value })

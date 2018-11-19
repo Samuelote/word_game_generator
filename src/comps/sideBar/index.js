@@ -44,7 +44,8 @@ const SideBar = observer(class SideBar extends Component {
         this.toggleType(name)
         break
       case 'CrossWord':
-        this.toggleType(name)
+        this.props.store.showError("We're sorry. The CrossWord Generator is currently under construction. Please try again later!")
+        // this.toggleType(name)
         break
       default:
         console.log(name)

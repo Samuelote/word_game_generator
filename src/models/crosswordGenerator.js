@@ -17,16 +17,18 @@ export default function generateCrossword(words) {
   let cDir = 'h'
 
   //Will be array of objects to contain name, x, y , and dir
-  const plantedWords = []
+  let plantedWords = []
   const plantWord = (word, y, x, dir, justChecking) => {
-    // console.log(word,y,x,dir,justChecking)
     if (
-       justChecking &&
+       justChecking && (
        // check for vertically travelling words
        (dir === 'v' && (mtrx[y-1] === undefined || mtrx[y+word.length] === undefined || mtrx[y+word.length-1] === undefined || Boolean(mtrx[y-1][x]) || Boolean(mtrx[y+word.length][x]) )) ||
        //check for horizintally travelling words
        (dir === 'h' && (mtrx[y] === undefined|| (mtrx[y][x + word.length - 1] === undefined) || Boolean(mtrx[y][x-1]) || Boolean(mtrx[y][x+word.length])))
-     ) {return false}
+      )
+     ) {
+       return false
+     }
     else if (justChecking) {
       for (let i=0;i<word.length; i++) {
         if(dir === 'v') {
@@ -71,19 +73,22 @@ export default function generateCrossword(words) {
         }
       }
     }
+    if (!xPts.length) return [];
     return xPts
   }
 
-  //Put largest word in the horizontally in middle of the board
+  //Put largest word horizontally in middle of the board
   plantWord(sorted[0], mtrx.length / 2, (mtrx[0].length - mLen) / 2, cDir)
 
   //Loop through the res of the words in the sorted array
   for (let s=1; s < sorted.length;s++) {
-    cDir = cDir === 'v' ? 'h' : 'v'
+    cDir = cDir === 'v' ? 'h' : 'v';
     let last = plantedWords[(cDir === 'v') ? 0 : plantedWords.length - 1]
     let xPts = findCrossPts(last.name, sorted[s])
     let randStart = Math.floor(Math.random() * xPts.length)
     //Loop through crosspoint options
+    console.log(last, xPts.length + randStart);
+    if (!(xPts.length + randStart)) plantedWords = [];
     for (let p=randStart; p<xPts.length + randStart;p++) {
 
       let xPt = xPts[p % xPts.length]

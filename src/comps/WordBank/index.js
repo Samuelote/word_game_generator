@@ -16,7 +16,11 @@ const WordBank = observer(class WordBank extends Component {
 
   handleClick(e) {
     const { store } = this.props
-    if (store.wordBank.length > 3) store.regenPuzzle(store.puzzleType)
+    if (store.puzzleType === "CrossWord"){
+      store.showError("We're sorry. The CrossWord Generator is currently under construction. Please try again later!")
+    }
+    //Change WordSearch to store.puzzleType when crossword generator is fixed
+    else if (store.wordBank.length > 3) store.regenPuzzle("WordSearch")
   }
 
   renderWords() {

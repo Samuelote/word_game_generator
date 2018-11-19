@@ -27,7 +27,7 @@ const App = observer(class App extends Component {
         <div className='Error'>
           <div className='ErrorChildren'>
             <button onClick={this.hideDiv.bind(this)}>X</button>
-            <div className='msg'>This is an error that needs to extend extremly far for warpping</div>
+            <div className='msg'></div>
           </div>
         </div>
         <AddWordBar store={this.props.store} />
