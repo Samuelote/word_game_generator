@@ -6,8 +6,6 @@ import writeCrossPdf from './models/writeCrossPdf'
 
 
 const testWords = [
-  "SCrape", "DRAPE", 'TAPE',
-  'MAKE'
   // 'OVEROBSESSIONIST',
   // 'ANCHORSCHOOL',
   // 'MUTILATION',
